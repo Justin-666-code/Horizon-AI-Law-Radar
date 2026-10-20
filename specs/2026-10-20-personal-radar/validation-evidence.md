@@ -125,8 +125,8 @@ Pages: https://justin-666-code.github.io/Horizon-AI-Law-Radar/
 
 ```text
 Target: D:\知识库\knowledge1\horizon-2026-10-20-zh.md
-Length: 4473 bytes
-SHA256: 82BA662ECDDF2726B01312E98E700EE6AE160F5CB4BB681BAF7E2299652AB261
+Length: 5157 bytes
+SHA256: 8F625BB7DDAF23D1B41CD3CA8BF15E8A732FFA0E3C66F0200AA55FEED1AE18DC
 First run: saved
 Second run: unchanged
 Hash stable: true
@@ -148,9 +148,9 @@ actionlint .github/workflows/daily-summary.yml
 结果：
 
 ```text
-Generated data/config.json with 20 RSS sources, 10 max items, policy primary_only
-47 focused tests passed
-544 full regression tests passed excluding the two known Windows-only upstream path assertions
+Generated data/config.json with 23 RSS sources, 10 max items, policy mixed
+53 focused tests passed
+545 full regression tests passed excluding the two known Windows-only upstream path assertions
 ACTIONLINT_OK
 ```
 
@@ -178,24 +178,26 @@ Hacker News
 Reddit
 Telegram
 OSS Insight
-Google News (all queries)
+Google News - 中文 AI 前沿
 EFF Digital Rights
 ```
 
 日报画像顺序：
 
 ```text
-ai-foundations, ai-research, tech-news, tech-blog
+ai-foundations, ai-research, tech-news, tech-blog, law-governance, career-opportunity
 ```
 
 内容域配额：
 
 ```text
-foundations=4
-research=3
-ai-updates=2
-engineering=3
-other=1
+foundations=3
+research=2
+ai-updates=1
+engineering=2
+law=1
+opportunity=1
+other=0
 max_items=10
 ```
 
@@ -217,6 +219,8 @@ Apple ML Research        200    10 entries
 Berkeley BAIR Blog       200    10 entries
 CMU ML Blog              200     1 entry
 Amazon Science           200    25 entries
+Machine Learning Mastery 200    10 entries
+PyImageSearch            200     9 entries
 Simon Willison           200    30 entries
 vLLM Blog                200    50 entries
 arXiv API                此前成功，本次连续探测触发 429 限流
@@ -227,26 +231,28 @@ arXiv 在 Horizon 中属于单源失败可降级路径；本次不会因限流�
 最终线上验证：
 
 ```text
-Run: 39397448960
+Run: 39400877622
 Conclusion: success
-Duration: 1m 27s
-Fetched: 6
-Analyzed: 6
+Duration: 2m 3s
+Fetched: 21
+Analyzed: 21
 Selected: 2
-AI foundations: 2/4
-Research: 0/3
-AI updates: 0/2
-Engineering: 0/3
-Token usage: 19492
-Final article: 4473 bytes
+AI foundations: 1/3
+Research: 1/2
+AI updates: 0/1
+Engineering: 0/2
+Law: 0/1
+Opportunity: 0/1
+Token usage: 31799
+Final article: 5157 bytes
 ```
 
 入选内容：
 
 ```text
 Python 描述符与受控属性
-GRPO：面向推理的免价值函数强化学习
+检索工具输出导致 LLM 代理准确率下降
 ```
 
-工程观点文 Simon Willison 7.0 分，被 7.5 阈值过滤。当天没有合适的一手研究或官方更新时，栏目保持为空，不用二手内容填满。
+法律查询增加 `max_items=10` 后，从上一轮的 34 条候选降到 2 条；选调最多 5 条、法硕最多 3 条。今天辅线候选没有达到门槛，因此法律与机会栏目为空。系统不会为了填满栏目把泛法律新闻或培训广告塞进日报。
 

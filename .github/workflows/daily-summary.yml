@@ -45,7 +45,7 @@ jobs:
             exit 1
           fi
           uv run python -m json.tool data/config.json > /dev/null
-          uv run pytest tests/test_radar_preferences.py tests/test_personal_radar.py -q
+          uv run pytest tests/test_rss.py tests/test_radar_preferences.py tests/test_personal_radar.py -q
 
       - name: Run Horizon
         env:
