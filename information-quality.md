@@ -21,6 +21,12 @@ title: 信息来源质量审计
 | Microsoft Research | 一手机构发布 | 研究动态 | 覆盖全部研究领域 |
 | MIT News AI | 一手机构新闻 | 研究与应用 | 新闻稿不是论文全文 |
 | GitHub AI and ML | 一手工程文章 | 工程实践 | 平台方视角 |
+| PyTorch Blog | 一手项目博客 | 框架基础、训练与部署 | 项目方视角 |
+| TensorFlow Blog | 一手项目博客 | 框架基础与工程实践 | 项目方视角 |
+| Apple ML Research | 一手研究发布 | 研究方法 | 机构选择性公开 |
+| Berkeley BAIR Blog | 实验室一手文章 | 研究解释 | 实验室视角 |
+| CMU ML Blog | 大学实验室一手文章 | 研究与学习 | 更新频率不稳定 |
+| Amazon Science | 机构一手研究新闻 | 应用研究 | 机构自述 |
 | vLLM Blog | 一手项目博客 | 推理系统 | 项目自身性能声明 |
 | Simon Willison | 作者一手记录 | 工程实践 | 个人经验不是基准测试 |
 | Lilian Weng | 作者一手文章 | 技术综述 | 长文更新频率低 |
