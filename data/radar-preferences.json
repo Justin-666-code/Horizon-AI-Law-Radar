@@ -17,7 +17,7 @@
     "ai-research": 8.3,
     "tech-news": 7.5,
     "tech-blog": 7.5,
-    "law-governance": 4.5,
+    "law-governance": 6.0,
     "career-opportunity": 4.5
   },
   "category_limits": {
@@ -96,6 +96,18 @@
       "enabled": false,
       "rss": [
         "EFF Digital Rights"
+      ],
+      "github": [],
+      "providers": []
+    },
+    "primary_ip_governance": {
+      "tier": "primary",
+      "enabled": true,
+      "rss": [
+        "WIPO Press Releases",
+        "USPTO News",
+        "U.S. Copyright Office News",
+        "EU Digital Strategy"
       ],
       "github": [],
       "providers": []
