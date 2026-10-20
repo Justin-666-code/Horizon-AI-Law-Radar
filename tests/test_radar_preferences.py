@@ -48,11 +48,9 @@ def test_generates_primary_ai_foundations_config(tmp_path) -> None:
         "tech-news",
         "tech-blog",
         "law-governance",
-        "career-opportunity",
     ]
     assert config.processing.profile_settings["ai-foundations"].threshold == 6.8
     assert config.processing.profile_settings["law-governance"].threshold == 6.0
-    assert config.processing.profile_settings["career-opportunity"].threshold == 3.5
     assert config.sources.hackernews.enabled is False
     assert config.sources.reddit.enabled is False
     assert config.sources.telegram.enabled is False
@@ -63,17 +61,17 @@ def test_generates_primary_ai_foundations_config(tmp_path) -> None:
         if source.name.startswith("Google News")
     }
     assert google_sources["Google News - 中文 AI 前沿"] is False
-    assert google_sources["Google News - AI 法律与治理"] is True
-    assert google_sources["Google News - 法律硕士招生"] is True
-    assert google_sources["Google News - 选调与公务员"] is True
+    assert google_sources["Google News - AI法律治理与数字政府"] is True
+    assert "Google News - 法律硕士招生" not in google_sources
+    assert "Google News - 选调与公务员" not in google_sources
     assert any(
         source.name == "WIPO Press Releases" and source.enabled
         for source in config.sources.rss
     )
     assert config.digest.category_groups["foundations"].limit == 3
     assert config.digest.category_groups["research"].limit == 2
-    assert config.digest.category_groups["law"].limit == 1
-    assert config.digest.category_groups["opportunity"].limit == 1
+    assert config.digest.category_groups["law"].limit == 2
+    assert "opportunity" not in config.digest.category_groups
 
 
 def test_primary_only_rejects_enabled_secondary_group(tmp_path) -> None:

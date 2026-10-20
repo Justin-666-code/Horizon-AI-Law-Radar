@@ -9,24 +9,21 @@
     "ai-research",
     "tech-news",
     "tech-blog",
-    "law-governance",
-    "career-opportunity"
+    "law-governance"
   ],
   "thresholds": {
     "ai-foundations": 6.8,
     "ai-research": 8.3,
     "tech-news": 7.5,
     "tech-blog": 7.5,
-    "law-governance": 6.0,
-    "career-opportunity": 3.5
+    "law-governance": 6.0
   },
   "category_limits": {
     "foundations": 3,
     "research": 2,
     "ai-updates": 1,
     "engineering": 2,
-    "opportunity": 1,
-    "law": 1,
+    "law": 2,
     "other": 0
   },
   "source_groups": {
@@ -105,20 +102,16 @@
       "enabled": true,
       "rss": [
         "WIPO Press Releases",
-        "USPTO News",
-        "U.S. Copyright Office News",
         "EU Digital Strategy"
       ],
       "github": [],
       "providers": []
     },
-    "secondary_law_and_career": {
+    "secondary_ai_law_governance": {
       "tier": "secondary",
       "enabled": true,
       "rss": [
-        "Google News - AI 法律与治理",
-        "Google News - 法律硕士招生",
-        "Google News - 选调与公务员"
+        "Google News - AI法律治理与数字政府"
       ],
       "github": [],
       "providers": []

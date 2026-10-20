@@ -1,8 +1,8 @@
 {
   "id": "law-governance",
-  "name": "IP, AI Governance and Law",
+  "name": "AI, Law and Public Governance",
   "display_names": {
-    "zh": "法律、知识产权与AI治理"
+    "zh": "AI × 法律 × 公共治理"
   },
   "match": "match.md",
   "analysis": "analysis.md",
@@ -31,7 +31,7 @@
         "tools": ["web_search"]
       },
       {
-        "id": "action",
+        "id": "learning_path",
         "type": "section",
         "tools": [],
         "optional": true

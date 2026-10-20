@@ -264,23 +264,6 @@
         "content_extractor": "trafilatura"
       },
       {
-        "name": "USPTO News",
-        "url": "https://www.uspto.gov/about-us/news-updates/rss",
-        "enabled": false,
-        "category": "ip-governance",
-        "profile": "law-governance",
-        "max_items": 5,
-        "content_extractor": "trafilatura"
-      },
-      {
-        "name": "U.S. Copyright Office News",
-        "url": "https://www.copyright.gov/rss/news.xml",
-        "enabled": false,
-        "category": "ip-governance",
-        "profile": "law-governance",
-        "max_items": 5
-      },
-      {
         "name": "EU Digital Strategy",
         "url": "https://digital-strategy.ec.europa.eu/en/rss.xml",
         "enabled": false,
@@ -290,28 +273,12 @@
         "content_extractor": "trafilatura"
       },
       {
-        "name": "Google News - AI 法律与治理",
-        "url": "https://news.google.com/rss/search?q=%28%22生成式人工智能%22%20OR%20生成式AI%29%20%28著作权%20OR%20专利%20OR%20知识产权%20OR%20数据产权%20OR%20算法治理%29%20when%3A1d&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+        "name": "Google News - AI法律治理与数字政府",
+        "url": "https://news.google.com/rss/search?q=%28人工智能%20OR%20生成式AI%29%20%28著作权%20OR%20专利%20OR%20知识产权%20OR%20数据产权%20OR%20算法治理%20OR%20数字政府%20OR%20政务AI%20OR%20公共部门AI%29%20when%3A1d&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
         "enabled": false,
         "category": "ai-law",
         "profile": "law-governance",
         "max_items": 10
-      },
-      {
-        "name": "Google News - 法律硕士招生",
-        "url": "https://news.google.com/rss/search?q=%28法律硕士%20OR%20法硕%29%20%28招生%20OR%20复试%20OR%20调剂%20OR%20分数线%20OR%20报名%29%20when%3A1d&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
-        "enabled": false,
-        "category": "law-admissions",
-        "profile": "career-opportunity",
-        "max_items": 3
-      },
-      {
-        "name": "Google News - 选调与公务员",
-        "url": "https://news.google.com/rss/search?q=%28选调生%20OR%20定向选调%20OR%20数字政府%20OR%20公共部门人工智能%29%20%28公告%20OR%20报名%20OR%20政策%29%20when%3A1d&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
-        "enabled": false,
-        "category": "civil-service",
-        "profile": "career-opportunity",
-        "max_items": 5
       },
       {
         "name": "Google News - 中文 AI 前沿",
@@ -394,28 +361,19 @@
       "ai-research",
       "tech-news",
       "tech-blog",
-      "law-governance",
-      "career-opportunity"
+      "law-governance"
     ],
     "category_groups": {
       "foundations": {
         "name": "AI 基础与动手实践",
-        "limit": 4,
+        "limit": 3,
         "categories": [
           "ai-foundations"
         ]
       },
-      "opportunity": {
-        "name": "机会公告",
-        "limit": 1,
-        "categories": [
-          "civil-service",
-          "law-admissions"
-        ]
-      },
       "law": {
-        "name": "法律与数字治理",
-        "limit": 1,
+        "name": "AI × 法律 × 公共治理",
+        "limit": 2,
         "categories": [
           "ai-law",
           "digital-rights",
@@ -424,14 +382,14 @@
       },
       "research": {
         "name": "AI 研究前沿",
-        "limit": 3,
+        "limit": 2,
         "categories": [
           "ai-research"
         ]
       },
       "ai-updates": {
         "name": "AI 产品与产业",
-        "limit": 2,
+        "limit": 1,
         "categories": [
           "ai-news",
           "ai-industry"
@@ -439,13 +397,13 @@
       },
       "engineering": {
         "name": "工程实践",
-        "limit": 3,
+        "limit": 2,
         "categories": [
           "ai-engineering"
         ]
       }
     },
     "default_group": "other",
-    "default_group_limit": 2
+    "default_group_limit": 1
   }
 }

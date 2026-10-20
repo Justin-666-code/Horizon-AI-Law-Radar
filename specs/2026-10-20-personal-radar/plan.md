@@ -2,7 +2,7 @@
 
 ## 1. 个人处理画像
 
-- 产物：`profiles/ai-research/`、`profiles/law-governance/`、`profiles/career-opportunity/`
+- 产物：`profiles/ai-research/`、`profiles/law-governance/`；`career-opportunity/` 仅保留为历史资源
 - 完成条件：每个 profile 均包含 `profile.json`、`match.md`、`analysis.md`、`enrichment.md`，可被 `ProfileRegistry` 加载。
 
 ## 2. 来源与运行参数

@@ -39,8 +39,7 @@ data/radar-preferences.json
   "research": 2,
   "ai-updates": 1,
   "engineering": 2,
-  "law": 1,
-  "opportunity": 1,
+  "law": 2,
   "other": 0
 }
 ```
@@ -55,14 +54,13 @@ data/radar-preferences.json
   "ai-research": 8.3,
   "tech-news": 7.5,
   "tech-blog": 7.5,
-  "law-governance": 6.0,
-  "career-opportunity": 3.5
+  "law-governance": 6.0
 }
 ```
 
 数值越高越严格。不要把所有栏目一起降到很低；先看连续几天的入选结果，再只调整一个栏目。
 
-当前策略是 AI/计算机质量优先，官方知识产权来源保持 `6.0`，公共服务路径允许 `3.5` 的覆盖优先。广告、谣言、无来源截图和完全无关内容仍应在评分阶段被排除。
+当前策略是 AI/计算机质量优先，AI 与法律、知识产权、数字政府、政务 AI 的融合线保持 `6.0`。广告、谣言、招考培训、无来源截图和与数字技术无关的泛法律内容仍应在评分阶段被排除。
 
 ### 来源组开关
 
@@ -79,7 +77,7 @@ data/radar-preferences.json
 }
 ```
 
-默认 `information_policy` 是 `mixed`。AI 与计算机默认只启用 `primary` 来源；只有法律、知识产权、法硕和公共服务使用小比例 `secondary` 发现。
+默认 `information_policy` 是 `mixed`。AI 与计算机默认只启用 `primary` 来源；只有 AI × 法律 × 公共治理融合线使用小比例 `secondary` 发现。
 
 若要求绝对一手，把策略改为：
 
@@ -124,7 +122,7 @@ data/config.github.json
 
 新增来源后，还要在 `data/radar-preferences.json` 的某个来源组里登记它的名称，生成器才会控制其启停。
 
-RSS 来源可在 `data/config.github.json` 中设置 `max_items`，限制单次运行最多取多少条。宽泛搜索源应设置此上限；法律查询默认最多 10 条，法硕 3 条，选调 5 条。
+RSS 来源可在 `data/config.github.json` 中设置 `max_items`，限制单次运行最多取多少条。宽泛搜索源应设置此上限；AI 法律与数字政府查询默认最多 10 条。
 
 ## 应用修改
 
@@ -143,8 +141,7 @@ GitHub Actions 会在每次日报运行前自动执行同一个生成器。推�
 2. `ai-research`：少量高价值研究，明确预印本边界。
 3. `tech-news`：官方模型、工具和项目发布。
 4. `tech-blog`：第一手工程实践。
-5. `law-governance`：知识产权、AI 治理与法律，最多 1 条。
-6. `career-opportunity`：法硕与公共服务路径，最多 1 条。
+5. `law-governance`：AI × 法律 × 公共治理，最多 2 条。
 
-法硕与公共服务合计约占日报的 20%，并且必须能说明与 AI、计算机或数字治理的关系。
+融合线约占日报的 20%，覆盖知识产权、AI 治理、数字政府、政务 AI、司法科技和公共部门法律实践。它不是招考栏目。
 

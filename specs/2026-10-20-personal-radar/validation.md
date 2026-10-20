@@ -11,7 +11,7 @@
 1. 在 `data/config.json` 所在的本地仓库创建 `.env` 并设置 `DASHSCOPE_API_KEY`。
 2. 运行 `uv run horizon --hours 24`。
 3. 确认 `data/summaries/` 生成当日中文 Markdown。
-4. 确认简报按“AI 与计算机基础、AI 研究、AI 产品与产业、工程实践、法律与公共服务”顺序分段，且不超过 10 条；法律与机会各不超过 1 条。
+4. 确认简报按“AI 与计算机基础、AI 研究、AI 产品与产业、工程实践、AI × 法律 × 公共治理”顺序分段，且不超过 10 条；融合线不超过 2 条。
 5. 随机选择三条信息，确认每条都有原始链接，公告日期和资格信息与原文一致。
 6. 运行 `scripts/Sync-Horizon-Daily.ps1`，确认 `D:\知识库\knowledge1\horizon-YYYY-MM-DD-zh.md` 存在且可读。
 7. 连续运行同步脚本两次，确认第二次内容哈希和文件修改时间不变。
