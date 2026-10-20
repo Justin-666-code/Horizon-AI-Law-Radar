@@ -21,6 +21,11 @@
         "primary": true
       },
       {
+        "id": "beginner_bridge",
+        "type": "section",
+        "tools": []
+      },
+      {
         "id": "method",
         "type": "section",
         "tools": []

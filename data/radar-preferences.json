@@ -1,31 +1,33 @@
 {
   "version": 1,
   "stage": "人工智能本科二年级",
-  "information_policy": "primary_only",
+  "information_policy": "mixed",
   "collection_time_window_hours": 24,
   "daily_item_limit": 10,
   "profile_order": [
     "ai-foundations",
     "ai-research",
     "tech-news",
-    "tech-blog"
+    "tech-blog",
+    "law-governance",
+    "career-opportunity"
   ],
   "thresholds": {
     "ai-foundations": 6.8,
     "ai-research": 8.3,
     "tech-news": 7.5,
     "tech-blog": 7.5,
-    "law-governance": 8.5,
-    "career-opportunity": 8.5
+    "law-governance": 7.5,
+    "career-opportunity": 8.0
   },
   "category_limits": {
-    "foundations": 4,
-    "research": 3,
-    "ai-updates": 2,
-    "engineering": 3,
-    "opportunity": 0,
-    "law": 0,
-    "other": 1
+    "foundations": 3,
+    "research": 2,
+    "ai-updates": 1,
+    "engineering": 2,
+    "opportunity": 1,
+    "law": 1,
+    "other": 0
   },
   "source_groups": {
     "primary_ai": {
@@ -100,7 +102,7 @@
     },
     "secondary_law_and_career": {
       "tier": "secondary",
-      "enabled": false,
+      "enabled": true,
       "rss": [
         "Google News - AI 法律与治理",
         "Google News - 法律硕士招生",

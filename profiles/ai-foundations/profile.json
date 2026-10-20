@@ -1,8 +1,8 @@
 {
   "id": "ai-foundations",
-  "name": "AI Foundations for Undergraduates",
+  "name": "AI and Computer Foundations for Beginners",
   "display_names": {
-    "zh": "AI 基础与动手实践"
+    "zh": "AI 与计算机基础"
   },
   "match": "match.md",
   "analysis": "analysis.md",

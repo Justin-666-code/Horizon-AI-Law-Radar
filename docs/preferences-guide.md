@@ -35,11 +35,13 @@ data/radar-preferences.json
 
 ```json
 "category_limits": {
-  "foundations": 4,
-  "research": 3,
-  "ai-updates": 2,
-  "engineering": 3,
-  "other": 1
+  "foundations": 3,
+  "research": 2,
+  "ai-updates": 1,
+  "engineering": 2,
+  "law": 1,
+  "opportunity": 1,
+  "other": 0
 }
 ```
 
@@ -52,7 +54,9 @@ data/radar-preferences.json
   "ai-foundations": 6.8,
   "ai-research": 8.3,
   "tech-news": 7.5,
-  "tech-blog": 7.5
+  "tech-blog": 7.5,
+  "law-governance": 7.5,
+  "career-opportunity": 8.0
 }
 ```
 
@@ -73,13 +77,15 @@ data/radar-preferences.json
 }
 ```
 
-默认 `information_policy` 是 `primary_only`，因此 `tier: secondary` 的组必须关闭。若确实需要聚合器或社区，先把策略改为：
+默认 `information_policy` 是 `mixed`。AI 与计算机默认只启用 `primary` 来源；只有法律、知识产权、法硕和公共服务使用小比例 `secondary` 发现。
+
+若要求绝对一手，把策略改为：
 
 ```json
-"information_policy": "mixed"
+"information_policy": "primary_only"
 ```
 
-再显式启用对应组。系统不会静默把二手来源混进来。
+此时所有 `tier: secondary` 来源组必须关闭。系统不会静默把二手来源混进来。
 
 ## 三个修改层级
 
@@ -133,6 +139,8 @@ GitHub Actions 会在每次日报运行前自动执行同一个生成器。推�
 2. `ai-research`：少量高价值研究，明确预印本边界。
 3. `tech-news`：官方模型、工具和项目发布。
 4. `tech-blog`：第一手工程实践。
+5. `law-governance`：知识产权、AI 治理与法律，最多 1 条。
+6. `career-opportunity`：法硕与公共服务路径，最多 1 条。
 
-`law-governance` 和 `career-opportunity` 仍保留，但默认不进入日报。
+法硕与公共服务合计约占日报的 20%，并且必须能说明与 AI、计算机或数字治理的关系。
 

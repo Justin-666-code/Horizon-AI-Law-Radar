@@ -47,25 +47,32 @@ def test_generates_primary_ai_foundations_config(tmp_path) -> None:
         "ai-research",
         "tech-news",
         "tech-blog",
+        "law-governance",
+        "career-opportunity",
     ]
     assert config.processing.profile_settings["ai-foundations"].threshold == 6.8
     assert config.sources.hackernews.enabled is False
     assert config.sources.reddit.enabled is False
     assert config.sources.telegram.enabled is False
     assert config.sources.ossinsight.enabled is False
-    assert all(
-        not source.enabled
+    google_sources = {
+        source.name: source.enabled
         for source in config.sources.rss
         if source.name.startswith("Google News")
-    )
-    assert config.digest.category_groups["foundations"].limit == 4
-    assert config.digest.category_groups["research"].limit == 3
-    assert "opportunity" not in config.digest.category_groups
-    assert "law" not in config.digest.category_groups
+    }
+    assert google_sources["Google News - 中文 AI 前沿"] is False
+    assert google_sources["Google News - AI 法律与治理"] is True
+    assert google_sources["Google News - 法律硕士招生"] is True
+    assert google_sources["Google News - 选调与公务员"] is True
+    assert config.digest.category_groups["foundations"].limit == 3
+    assert config.digest.category_groups["research"].limit == 2
+    assert config.digest.category_groups["law"].limit == 1
+    assert config.digest.category_groups["opportunity"].limit == 1
 
 
 def test_primary_only_rejects_enabled_secondary_group(tmp_path) -> None:
     preferences = _preferences()
+    preferences["information_policy"] = "primary_only"
     preferences["source_groups"]["community_discovery"]["enabled"] = True
     preferences_path = tmp_path / "preferences.json"
     preferences_path.write_text(

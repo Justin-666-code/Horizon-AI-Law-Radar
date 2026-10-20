@@ -1,8 +1,8 @@
 {
   "id": "career-opportunity",
-  "name": "Law and Public Service Opportunities",
+  "name": "Law Master and Public Service Pathways",
   "display_names": {
-    "zh": "机会公告"
+    "zh": "法硕与公共服务路径"
   },
   "match": "match.md",
   "analysis": "analysis.md",

@@ -21,7 +21,7 @@
 - [`data/radar-preferences.json`](data/radar-preferences.json)：每日条数、阈值、分类配额和一手/二手策略。
 - [`docs/preferences-guide.md`](docs/preferences-guide.md)：如何修改检索标准。
 - [`docs/information-quality.md`](docs/information-quality.md)：当前来源的一手性与局限。
-- [`profiles/`](profiles/)：AI 基础、研究和工程内容的判断与写作标准。
+- [`profiles/`](profiles/)：AI/计算机基础、研究、工程、知识产权治理、法硕与公共服务的判断标准。
 - [`.github/workflows/daily-summary.yml`](.github/workflows/daily-summary.yml)：每日采集与 Pages 发布。
 - [`specs/2026-10-20-personal-radar/validation.md`](specs/2026-10-20-personal-radar/validation.md)：验收与证据要求。
 

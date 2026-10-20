@@ -1,8 +1,8 @@
 # Career opportunity profile
 
-Use this profile for official or well-sourced opportunities relevant to a student planning a law master's degree and a career in public service.
+Use this profile for official or well-sourced pathway information relevant to a technology student considering a law master's degree or public service.
 
-Typical items include targeted civil-service selection announcements, civil-service recruitment, public-institution recruitment, talent-introduction programs, law-master admissions, re-examination, adjustment, score lines, registration windows, and changes to eligibility rules.
+Typical items include targeted civil-service selection announcements, digital-government or technology-governance roles, public-institution recruitment, talent-introduction programs, law-master admissions, re-examination, adjustment, score lines, registration windows, and changes to eligibility rules that connect to technology, data, or public policy.
 
-Do not use this profile for paid exam-training advertisements, generic career advice, unverified screenshots, salary gossip, or content that does not name an institution, program, and actionable application process.
+Do not use this profile for paid exam-training advertisements, generic career advice, unverified screenshots, salary gossip, or content that does not name an institution, program, and actionable process. Prefer opportunities where AI, computer science, data, or digital governance knowledge is useful.
 

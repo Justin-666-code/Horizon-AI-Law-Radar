@@ -21,7 +21,7 @@
         "topic_dedup": true
       },
       "career-opportunity": {
-        "threshold": 7.5,
+        "threshold": 8.0,
         "topic_dedup": true
       },
       "law-governance": {
@@ -256,7 +256,7 @@
       },
       {
         "name": "Google News - AI 法律与治理",
-        "url": "https://news.google.com/rss/search?q=人工智能%20%28立法%20OR%20监管%20OR%20治理%20OR%20司法%20OR%20个人信息保护%29%20when%3A1d&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+        "url": "https://news.google.com/rss/search?q=%28人工智能%20OR%20生成式AI%20OR%20数据要素%29%20%28知识产权%20OR%20著作权%20OR%20专利%20OR%20数据产权%20OR%20算法治理%20OR%20AI治理%29%20when%3A1d&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
         "enabled": false,
         "category": "ai-law",
         "profile": "law-governance"
@@ -270,7 +270,7 @@
       },
       {
         "name": "Google News - 选调与公务员",
-        "url": "https://news.google.com/rss/search?q=%28选调生%20OR%20定向选调%20OR%20公务员招录%20OR%20人才引进%29%20%28公告%20OR%20报名%20OR%20笔试%20OR%20面试%29%20when%3A1d&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+        "url": "https://news.google.com/rss/search?q=%28选调生%20OR%20定向选调%20OR%20数字政府%20OR%20公共部门人工智能%29%20%28公告%20OR%20报名%20OR%20政策%29%20when%3A1d&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
         "enabled": false,
         "category": "civil-service",
         "profile": "career-opportunity"
@@ -354,7 +354,9 @@
       "ai-foundations",
       "ai-research",
       "tech-news",
-      "tech-blog"
+      "tech-blog",
+      "law-governance",
+      "career-opportunity"
     ],
     "category_groups": {
       "foundations": {
@@ -366,7 +368,7 @@
       },
       "opportunity": {
         "name": "机会公告",
-        "limit": 5,
+        "limit": 1,
         "categories": [
           "civil-service",
           "law-admissions"
@@ -374,7 +376,7 @@
       },
       "law": {
         "name": "法律与数字治理",
-        "limit": 5,
+        "limit": 1,
         "categories": [
           "ai-law",
           "digital-rights"

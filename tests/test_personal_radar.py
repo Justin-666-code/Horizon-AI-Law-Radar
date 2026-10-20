@@ -49,6 +49,8 @@ def test_personal_radar_config_and_profiles_are_consistent():
         "ai-research",
         "tech-news",
         "tech-blog",
+        "law-governance",
+        "career-opportunity",
     ]
     assert config.sources.google_news is None
     assert config.email is None

@@ -1,6 +1,6 @@
 # Evaluation goal
 
-Evaluate whether an item can improve an人工智能大二 student's ability to understand, implement, test, or read AI systems within the next one to three months.
+Evaluate whether an item can improve an人工智能大二 beginner's ability to understand, implement, test, or read computer and AI systems within the next one to three months.
 
 # Scoring rubric
 
@@ -12,7 +12,7 @@ Evaluate whether an item can improve an人工智能大二 student's ability to u
 
 # Evaluation guidance
 
-Reward conceptual clarity, correct math, runnable examples, explicit prerequisites, reproducible evaluation, and honest limitations. Do not reward novelty, brand prestige, long reading time, or benchmark claims by themselves. A cutting-edge result can score high only when the source makes the underlying foundation learnable for a second-year undergraduate.
+Reward conceptual clarity, plain-language explanation, correct math, runnable examples, explicit prerequisites, reproducible evaluation, and honest limitations. Penalize content that assumes unexplained advanced knowledge. Do not reward novelty, brand prestige, long reading time, or benchmark claims by themselves. A cutting-edge result can score high only when the source makes the underlying foundation learnable for a second-year beginner.
 
 Use three to five tags describing the concept, skill, and difficulty.
 
