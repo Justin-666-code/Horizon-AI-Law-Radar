@@ -55,12 +55,14 @@ data/radar-preferences.json
   "ai-research": 8.3,
   "tech-news": 7.5,
   "tech-blog": 7.5,
-  "law-governance": 7.5,
-  "career-opportunity": 8.0
+  "law-governance": 6.0,
+  "career-opportunity": 6.0
 }
 ```
 
 数值越高越严格。不要把所有栏目一起降到很低；先看连续几天的入选结果，再只调整一个栏目。
+
+当前策略是 AI/计算机质量优先，法律与公共服务覆盖优先。`6.0` 允许有参考价值的背景材料进入辅线，但广告、谣言、无来源截图和完全无关内容仍应在评分阶段被排除。
 
 ### 来源组开关
 
