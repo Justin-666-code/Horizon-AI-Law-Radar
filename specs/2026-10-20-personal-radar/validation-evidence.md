@@ -81,10 +81,41 @@ ACTIONLINT_OK
 
 四个 Google News 查询在当前本地网络被跳过，设计上由 GitHub Actions 执行。Horizon 对单个源失败采用跳过并记录日志的语义。
 
-## 尚未执行
+## GitHub Actions 线上运行
 
-- 没有真实 `DASHSCOPE_API_KEY`，因此没有执行真实的模型评分、增强和最终日报生成。
-- 没有用户 GitHub 仓库与 Actions Secret，因此没有执行线上定时工作流和 Pages 发布。
+仓库：`https://github.com/Justin-666-code/Horizon-AI-Law-Radar`
 
-这两项必须由用户在本机或 GitHub 上注入密钥后完成；不能用配置解析通过代替模型与端到端验证。
+首次真实运行：
+
+```text
+Run: 39390055800
+Conclusion: success
+Duration: 9m 12s
+Fetched: 174
+Analyzed: 174
+Passed profile filters: 23
+Removed topic duplicates: 1
+Balanced digest: 8/22
+Enriched: 8/8
+Token usage: 192214 (input: 159316, output: 32898)
+```
+
+生成并发布：
+
+```text
+data/summaries/horizon-2026-10-20-zh.md
+docs/_posts/2026-10-20-summary-zh.md
+gh-pages commit: 14992e8cb1d99188844a5d959743f38a1debc40b
+Pages build: built
+```
+
+线上验证：
+
+```text
+Home: 200, contains 2026-10-20
+Article: 200
+Pages: https://justin-666-code.github.io/Horizon-AI-Law-Radar/
+```
+
+当日机会公告和法律治理来源有抓取结果，但没有条目达到 7.5 分，因此简报没有为了填满栏目而加入低质量内容。后续应基于多个自然日的分布再调整阈值，不用单日结果直接放宽。
 
