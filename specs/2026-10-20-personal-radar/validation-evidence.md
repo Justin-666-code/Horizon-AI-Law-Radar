@@ -125,8 +125,8 @@ Pages: https://justin-666-code.github.io/Horizon-AI-Law-Radar/
 
 ```text
 Target: D:\知识库\knowledge1\horizon-2026-10-20-zh.md
-Length: 16672 bytes
-SHA256: DBC43E659781522B79B8074C94591F92DDE5D16FB7D0A349531DFFCA583DA78F
+Length: 4473 bytes
+SHA256: 82BA662ECDDF2726B01312E98E700EE6AE160F5CB4BB681BAF7E2299652AB261
 First run: saved
 Second run: unchanged
 Hash stable: true
@@ -148,7 +148,7 @@ actionlint .github/workflows/daily-summary.yml
 结果：
 
 ```text
-Generated data/config.json with 18 RSS sources, 10 max items, policy primary_only
+Generated data/config.json with 20 RSS sources, 10 max items, policy primary_only
 47 focused tests passed
 544 full regression tests passed excluding the two known Windows-only upstream path assertions
 ACTIONLINT_OK
@@ -223,4 +223,30 @@ arXiv API                此前成功，本次连续探测触发 429 限流
 ```
 
 arXiv 在 Horizon 中属于单源失败可降级路径；本次不会因限流删除该研究入口，但 Microsoft Research、MIT News AI 等一手研究源仍可在 arXiv 限流时提供内容。
+
+最终线上验证：
+
+```text
+Run: 39397448960
+Conclusion: success
+Duration: 1m 27s
+Fetched: 6
+Analyzed: 6
+Selected: 2
+AI foundations: 2/4
+Research: 0/3
+AI updates: 0/2
+Engineering: 0/3
+Token usage: 19492
+Final article: 4473 bytes
+```
+
+入选内容：
+
+```text
+Python 描述符与受控属性
+GRPO：面向推理的免价值函数强化学习
+```
+
+工程观点文 Simon Willison 7.0 分，被 7.5 阈值过滤。当天没有合适的一手研究或官方更新时，栏目保持为空，不用二手内容填满。
 
