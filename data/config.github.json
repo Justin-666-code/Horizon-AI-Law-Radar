@@ -215,6 +215,22 @@
         "content_extractor": "trafilatura"
       },
       {
+        "name": "Machine Learning Mastery",
+        "url": "https://machinelearningmastery.com/feed/",
+        "enabled": true,
+        "category": "ai-foundations",
+        "profile": "ai-foundations",
+        "content_extractor": "trafilatura"
+      },
+      {
+        "name": "PyImageSearch",
+        "url": "https://pyimagesearch.com/feed/",
+        "enabled": true,
+        "category": "ai-foundations",
+        "profile": "ai-foundations",
+        "content_extractor": "trafilatura"
+      },
+      {
         "name": "Simon Willison",
         "url": "https://simonwillison.net/atom/everything/",
         "enabled": true,
