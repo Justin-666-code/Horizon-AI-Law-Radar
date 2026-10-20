@@ -52,7 +52,7 @@ data/radar-preferences.json
   "ai-foundations": 6.8,
   "ai-research": 8.3,
   "tech-news": 7.5,
-  "tech-blog": 7.0
+  "tech-blog": 7.5
 }
 ```
 
