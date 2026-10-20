@@ -122,6 +122,8 @@ data/config.github.json
 
 新增来源后，还要在 `data/radar-preferences.json` 的某个来源组里登记它的名称，生成器才会控制其启停。
 
+RSS 来源可在 `data/config.github.json` 中设置 `max_items`，限制单次运行最多取多少条。宽泛搜索源应设置此上限；法律查询默认最多 10 条，法硕 3 条，选调 5 条。
+
 ## 应用修改
 
 本地：
