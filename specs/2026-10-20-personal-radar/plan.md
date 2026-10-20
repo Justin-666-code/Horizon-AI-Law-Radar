@@ -25,3 +25,8 @@
 - 产物：`tests/test_personal_radar.py`
 - 完成条件：验证追踪配置、个人 profile 和来源 profile 引用；运行项目既有 profile、配置和工作流相关测试。
 
+## 6. 本机知识库同步
+
+- 产物：`scripts/Sync-Horizon-Daily.ps1`、`scripts/Register-Horizon-DailySync.ps1`
+- 完成条件：能从 `gh-pages` 获取当天中文 Markdown，写入 `D:\知识库\knowledge1`；重复运行不改变相同内容；每日 08:00 有自动触发。
+

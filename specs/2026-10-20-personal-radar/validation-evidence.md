@@ -119,3 +119,19 @@ Pages: https://justin-666-code.github.io/Horizon-AI-Law-Radar/
 
 当日机会公告和法律治理来源有抓取结果，但没有条目达到 7.5 分，因此简报没有为了填满栏目而加入低质量内容。后续应基于多个自然日的分布再调整阈值，不用单日结果直接放宽。
 
+## 本机知识库同步
+
+已实测：
+
+```text
+Target: D:\知识库\knowledge1\horizon-2026-10-20-zh.md
+Length: 16672 bytes
+SHA256: DBC43E659781522B79B8074C94591F92DDE5D16FB7D0A349531DFFCA583DA78F
+First run: saved
+Second run: unchanged
+Hash stable: true
+Mtime stable: true
+```
+
+Codex 每日 08:00 自动化已创建并持久化到 `C:\Users\16339\.codex\automations\horizon\automation.toml`。Windows 系统计划任务在当前受限沙箱身份下因 `New-ScheduledTaskAction` 权限被拒绝，脚本保留给普通桌面环境作为可选备选；每日同步由已验证的 Codex 自动化承担。
+

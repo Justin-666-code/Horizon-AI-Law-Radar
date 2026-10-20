@@ -14,6 +14,7 @@
 - GitHub Actions 会自动提供 `GITHUB_TOKEN`，无需手动新建。
 - 默认关闭邮件、微信和 Webhook，不需要提供额外密钥。
 - 正式部署优先用 GitHub Actions，因为法律与选调搜索依赖的部分 RSS 在国内本地网络可能不可用。
+- 每日日报会自动同步到 `D:\知识库\knowledge1\horizon-YYYY-MM-DD-zh.md`。
 
 配置入口：
 

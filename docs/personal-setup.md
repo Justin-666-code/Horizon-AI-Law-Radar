@@ -135,6 +135,18 @@ https://<你的 GitHub 用户名>.github.io/<仓库名>/
 
 接着看“法律与数字治理”，区分草案、征求意见、正式生效、司法裁判和媒体评论。最后再看 AI 研究、产业和工程实践。
 
+## 同步到本机知识库
+
+每天生成的 Markdown 会由本机定时自动化同步到：
+
+```text
+D:\知识库\knowledge1\horizon-YYYY-MM-DD-zh.md
+```
+
+同步器位于 `scripts/Sync-Horizon-Daily.ps1`。它从仓库的 `gh-pages` 分支读取日报，先写临时文件再原子替换，内容没有变化时不会重写。日志位于工作区的 `work/logs/horizon-daily-sync.log`。
+
+Codex 定时自动化已配置为每天北京时间 08:00 执行，成功时静默，下载失败或目标目录不可写时才提醒。`scripts/Register-Horizon-DailySync.ps1` 也可在普通桌面 PowerShell 中注册 Windows 计划任务，作为 Codex 应用未运行时的备选；在受限沙箱内注册系统任务会被 Windows 拒绝，这不影响 Codex 自动化。
+
 ## 如何按你的方向微调
 
 ### 可选：缩小选调地域

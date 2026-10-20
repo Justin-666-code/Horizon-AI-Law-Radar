@@ -11,6 +11,7 @@ docs/ - 上游文档、Pages 静态站与个人部署指南
 .github/workflows/ - 每日采集与 Pages 发布
 specs/2026-10-20-personal-radar/ - 本功能的意图、计划与验证契约
 tests/ - 上游回归测试与个人配置契约测试
+scripts/ - 上游运维脚本与 Windows 知识库同步任务
 </directory>
 
 <config>
@@ -20,6 +21,7 @@ data/config.json - 本地运行配置，默认被 Git 忽略
 .env.personal.example - 个人密钥变量名样例，不含真实密钥
 KEY-SETUP.md - 必需与可选密钥的官方获取入口
 .github/workflows/daily-summary.yml - 每日采集和 Pages 发布编排
+scripts/Sync-Horizon-Daily.ps1 - 将 gh-pages 日报同步到本机知识库
 </config>
 
 法则: 上游业务代码只读，个人偏好写配置，处理标准写 profile，密钥只进环境变量。
