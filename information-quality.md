@@ -31,6 +31,10 @@ title: 信息来源质量审计
 | PyImageSearch | 作者原创教程 | 计算机视觉与实战 | 课程推广占比需过滤 |
 | Google News - 知识产权与AI治理 | 二手发现 | 中文政策与案例线索 | 必须回查原始文件 |
 | Google News - 法硕与公共服务 | 二手发现 | 法硕、选调与数字政府 | 必须回查官方公告 |
+| WIPO Press Releases | 一手官方 | 国际知识产权规则 | 国际视角，非中国法专属 |
+| USPTO News | 一手官方 | 专利与 AI 创新政策 | 美国法域 |
+| U.S. Copyright Office News | 一手官方 | 著作权与生成式 AI | 美国法域 |
+| EU Digital Strategy | 一手官方 | 欧盟数字与 AI 政策 | 欧盟法域 |
 | vLLM Blog | 一手项目博客 | 推理系统 | 项目自身性能声明 |
 | Simon Willison | 作者一手记录 | 工程实践 | 个人经验不是基准测试 |
 | Lilian Weng | 作者一手文章 | 技术综述 | 长文更新频率低 |
