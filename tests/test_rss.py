@@ -1,5 +1,10 @@
 from __future__ import annotations
 
+# [INPUT]: 依赖 RSSSourceConfig、RSSScraper、feedparser 示例 XML 与异步客户端替身
+# [OUTPUT]: 验证 RSS 去重、时间、正文提取和单源条目上限
+# [POS]: tests 模块的 RSS 抓取契约测试，保护通用订阅源行为
+# [PROTOCOL]: 变更时更新此头部，然后检查 CLAUDE.md
+
 import asyncio
 from datetime import datetime, timezone
 from unittest.mock import AsyncMock
@@ -107,3 +112,28 @@ def test_unknown_extractor_name_ignored() -> None:
 
     assert len(items) == 1
     assert items[0].content == "Short summary from feed."
+
+
+def test_max_items_caps_per_source() -> None:
+    second_item = """
+  <item>
+    <guid>entry-2</guid>
+    <title>Item 2</title>
+    <link>https://example.com/item-2</link>
+    <pubDate>Fri, 24 Apr 2026 13:00:00 GMT</pubDate>
+    <description>Second summary.</description>
+  </item>
+"""
+    feed = _FEED.replace("</channel>", second_item + "</channel>")
+    client = _make_feed_client(feed)
+    source = RSSSourceConfig(
+        name="Test",
+        url="https://example.com/feed.xml",
+        max_items=1,
+    )
+    scraper = RSSScraper([source], client)
+
+    items = asyncio.run(scraper.fetch(_SINCE))
+
+    assert len(items) == 1
+    assert items[0].title == "Item 1"

@@ -256,31 +256,35 @@
       },
       {
         "name": "Google News - AI 法律与治理",
-        "url": "https://news.google.com/rss/search?q=%28人工智能%20OR%20生成式AI%20OR%20数据要素%29%20%28知识产权%20OR%20著作权%20OR%20专利%20OR%20数据产权%20OR%20算法治理%20OR%20AI治理%29%20when%3A1d&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+        "url": "https://news.google.com/rss/search?q=%28%22生成式人工智能%22%20OR%20生成式AI%29%20%28著作权%20OR%20专利%20OR%20知识产权%20OR%20数据产权%20OR%20算法治理%29%20when%3A1d&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
         "enabled": false,
         "category": "ai-law",
-        "profile": "law-governance"
+        "profile": "law-governance",
+        "max_items": 10
       },
       {
         "name": "Google News - 法律硕士招生",
         "url": "https://news.google.com/rss/search?q=%28法律硕士%20OR%20法硕%29%20%28招生%20OR%20复试%20OR%20调剂%20OR%20分数线%20OR%20报名%29%20when%3A1d&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
         "enabled": false,
         "category": "law-admissions",
-        "profile": "career-opportunity"
+        "profile": "career-opportunity",
+        "max_items": 3
       },
       {
         "name": "Google News - 选调与公务员",
         "url": "https://news.google.com/rss/search?q=%28选调生%20OR%20定向选调%20OR%20数字政府%20OR%20公共部门人工智能%29%20%28公告%20OR%20报名%20OR%20政策%29%20when%3A1d&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
         "enabled": false,
         "category": "civil-service",
-        "profile": "career-opportunity"
+        "profile": "career-opportunity",
+        "max_items": 5
       },
       {
         "name": "Google News - 中文 AI 前沿",
         "url": "https://news.google.com/rss/search?q=%28大模型%20OR%20智能体%20OR%20多模态%20OR%20推理模型%20OR%20开源模型%29%20%28发布%20OR%20研究%20OR%20突破%29%20when%3A1d&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
         "enabled": false,
         "category": "ai-news",
-        "profile": "tech-news"
+        "profile": "tech-news",
+        "max_items": 10
       }
     ],
     "reddit": {

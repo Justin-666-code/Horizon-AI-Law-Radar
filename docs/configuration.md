@@ -388,6 +388,7 @@ for validation and fallback rules.
         "name": "Blog Name",
         "url": "https://example.com/feed.xml",
         "enabled": true,
+        "max_items": 20,
         "category": "ai-ml",
         "profile": "auto"
       }
@@ -395,6 +396,10 @@ for validation and fallback rules.
   }
 }
 ```
+
+`max_items` is an optional per-run cap for this feed. It is applied after date
+filtering and prevents broad search feeds or large publication feeds from
+consuming unlimited analysis budget. Leave it unset for uncapped behavior.
 
 ### Reddit
 

@@ -1,5 +1,10 @@
 """Core data models for Horizon."""
 
+# [INPUT]: 依赖 Standard Library 与 Pydantic 的配置、校验和数据模型能力
+# [OUTPUT]: 对外提供来源配置、内容项、AI 配置和运行时设置模型
+# [POS]: src 的领域模型边界，统一约束所有抓取器、流水线与个人配置
+# [PROTOCOL]: 变更时更新此头部，然后检查 CLAUDE.md
+
 from datetime import datetime, timezone
 from enum import Enum
 import re
@@ -259,6 +264,7 @@ class RSSSourceConfig(BaseModel):
     enabled: bool = True
     category: Optional[str] = None
     content_extractor: Optional[str] = None
+    max_items: Optional[int] = Field(default=None, gt=0)
     profile: ProfileRoute = None
 
 

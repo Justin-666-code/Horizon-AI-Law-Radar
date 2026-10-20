@@ -1,5 +1,10 @@
 """RSS feed scraper implementation."""
 
+# [INPUT]: 依赖 httpx、feedparser、ExtractorRegistry 和 RSSSourceConfig
+# [OUTPUT]: 对外提供 RSSScraper，将 RSS/Atom 条目映射为 ContentItem
+# [POS]: scrapers 的通用订阅抓取器，由 orchestrator 与其他来源并行调用
+# [PROTOCOL]: 变更时更新此头部，然后检查 CLAUDE.md
+
 import calendar
 import hashlib
 import logging
@@ -128,6 +133,8 @@ class RSSScraper(BaseScraper):
                     },
                 )
                 items.append(item)
+                if source.max_items is not None and len(items) >= source.max_items:
+                    break
 
         except httpx.HTTPError as e:
             logger.warning("Error fetching RSS feed %s: %s", source.name, e)
