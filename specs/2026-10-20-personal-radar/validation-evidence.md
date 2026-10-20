@@ -125,8 +125,8 @@ Pages: https://justin-666-code.github.io/Horizon-AI-Law-Radar/
 
 ```text
 Target: D:\知识库\knowledge1\horizon-2026-10-20-zh.md
-Length: 7951 bytes
-SHA256: A754C416327ED54B9CBE51656C5D2BAB9374AA443471863E8B86DA07783DD748
+Length: 9966 bytes
+SHA256: C5B96F3C2AC05B6D48ACED609BAFEEA1B674DF840F05CA1608E772E2F931D8B7
 First run: saved
 Second run: unchanged
 Hash stable: true
@@ -148,7 +148,7 @@ actionlint .github/workflows/daily-summary.yml
 结果：
 
 ```text
-Generated data/config.json with 27 RSS sources, 10 max items, policy mixed
+Generated data/config.json with 23 RSS sources, 10 max items, policy mixed
 53 focused tests passed
 545 full regression tests passed excluding the two known Windows-only upstream path assertions
 ACTIONLINT_OK
@@ -185,7 +185,7 @@ EFF Digital Rights
 日报画像顺序：
 
 ```text
-ai-foundations, ai-research, tech-news, tech-blog, law-governance, career-opportunity
+ai-foundations, ai-research, tech-news, tech-blog, law-governance
 ```
 
 内容域配额：
@@ -195,8 +195,7 @@ foundations=3
 research=2
 ai-updates=1
 engineering=2
-law=1
-opportunity=1
+law=2
 other=0
 max_items=10
 ```
@@ -223,8 +222,8 @@ Machine Learning Mastery 200    10 entries
 PyImageSearch            200     9 entries
 EU Digital Strategy      200     1 entry
 WIPO Press Releases      reachable, no recent item in the final run
-USPTO News               404, disabled by failure isolation
-U.S. Copyright Office    404, disabled by failure isolation
+USPTO News               removed after 404
+U.S. Copyright Office    removed after 404
 Simon Willison           200    30 entries
 vLLM Blog                200    50 entries
 arXiv API                此前成功，本次连续探测触发 429 限流
@@ -235,29 +234,29 @@ arXiv 在 Horizon 中属于单源失败可降级路径；本次不会因限流�
 最终线上验证：
 
 ```text
-Run: 39403257390
+Run: 39405088927
 Conclusion: success
-Duration: 2m 31s
-Fetched: 22
-Analyzed: 22
-Selected: 3
+Duration: 2m 48s
+Fetched: 29
+Analyzed: 29
+Selected: 4
 AI foundations: 1/3
 Research: 1/2
 AI updates: 0/1
 Engineering: 0/2
-Law: 1/1
-Opportunity: 0/1
-Token usage: 35973
-Final article: 4009 characters / 7951 bytes
+Law: 2/2
+Token usage: 42589
+Final article: 4793 characters / 9966 bytes
 ```
 
 入选内容：
 
 ```text
 Python 描述符与受控属性
-检索工具输出导致 LLM 代理准确率下降
-欧盟委员会委托开展《数字服务法》下网络金融诈骗研究
+检索工具输出导致证据替换
+欧盟委员会委托研究：《数字服务法》框架下在线金融诈骗类型与应对措施
+农业农村部推动人工智能赋能育种创新
 ```
 
-法律查询增加 `max_items=10` 后，从上一轮的 34 条候选降到 2 条；选调最多 5 条、法硕最多 3 条。官方知识产权源中 EU Digital Strategy 贡献 1 条法律治理内容，USPTO 与 Copyright Office RSS 返回 404，Horizon 按单源失败隔离。法硕/选调候选低于 3.5 分，仍未进入日报。
+法律查询增加 `max_items=10` 后，从 34 条候选降到 10 条以内。最终融合线命中 2 条：一条欧盟官方数字政策，一条中国农业农村部 AI 公共治理案例。默认日报不再包含法硕招生、选调报名或考试培训来源。
 
