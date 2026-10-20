@@ -2,6 +2,7 @@
   "version": 1,
   "stage": "人工智能本科二年级",
   "information_policy": "primary_only",
+  "collection_time_window_hours": 24,
   "daily_item_limit": 10,
   "profile_order": [
     "ai-foundations",
@@ -41,6 +42,12 @@
         "Andrej Karpathy",
         "fast.ai",
         "GitHub AI and ML",
+        "PyTorch Blog",
+        "TensorFlow Blog",
+        "Apple Machine Learning Research",
+        "Berkeley BAIR Blog",
+        "CMU Machine Learning Blog",
+        "Amazon Science",
         "Simon Willison",
         "vLLM Blog"
       ],

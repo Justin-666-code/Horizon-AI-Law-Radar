@@ -168,6 +168,53 @@
         "content_extractor": "trafilatura"
       },
       {
+        "name": "PyTorch Blog",
+        "url": "https://pytorch.org/blog/feed/",
+        "enabled": true,
+        "category": "ai-foundations",
+        "profile": "ai-foundations",
+        "content_extractor": "trafilatura"
+      },
+      {
+        "name": "TensorFlow Blog",
+        "url": "https://blog.tensorflow.org/feeds/posts/default",
+        "enabled": true,
+        "category": "ai-foundations",
+        "profile": "ai-foundations",
+        "content_extractor": "trafilatura"
+      },
+      {
+        "name": "Apple Machine Learning Research",
+        "url": "https://machinelearning.apple.com/rss.xml",
+        "enabled": true,
+        "category": "ai-research",
+        "profile": "ai-research"
+      },
+      {
+        "name": "Berkeley BAIR Blog",
+        "url": "https://bair.berkeley.edu/blog/feed.xml",
+        "enabled": true,
+        "category": "ai-research",
+        "profile": "ai-research",
+        "content_extractor": "trafilatura"
+      },
+      {
+        "name": "CMU Machine Learning Blog",
+        "url": "https://blog.ml.cmu.edu/feed/",
+        "enabled": true,
+        "category": "ai-research",
+        "profile": "ai-research",
+        "content_extractor": "trafilatura"
+      },
+      {
+        "name": "Amazon Science",
+        "url": "https://www.amazon.science/index.rss",
+        "enabled": true,
+        "category": "ai-research",
+        "profile": "ai-research",
+        "content_extractor": "trafilatura"
+      },
+      {
         "name": "Simon Willison",
         "url": "https://simonwillison.net/atom/everything/",
         "enabled": true,

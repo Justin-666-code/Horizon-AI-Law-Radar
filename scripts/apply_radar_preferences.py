@@ -90,6 +90,11 @@ def apply_preferences(
     if not isinstance(daily_limit, int) or daily_limit <= 0:
         raise ValueError("daily_item_limit must be a positive integer")
 
+    time_window = preferences.get("collection_time_window_hours")
+    if not isinstance(time_window, int) or time_window <= 0:
+        raise ValueError("collection_time_window_hours must be a positive integer")
+    config["collection"]["time_window_hours"] = time_window
+
     profile_order = preferences.get("profile_order")
     if not isinstance(profile_order, list) or not profile_order:
         raise ValueError("profile_order must be a non-empty list")

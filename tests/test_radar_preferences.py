@@ -41,6 +41,7 @@ def test_generates_primary_ai_foundations_config(tmp_path) -> None:
     config = Config.model_validate_json(output.read_text(encoding="utf-8"))
 
     assert config.digest.max_items == 10
+    assert config.collection.time_window_hours == 24
     assert config.digest.profile_order == [
         "ai-foundations",
         "ai-research",

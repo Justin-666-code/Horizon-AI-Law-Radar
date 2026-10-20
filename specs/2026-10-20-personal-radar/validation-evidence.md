@@ -148,7 +148,7 @@ actionlint .github/workflows/daily-summary.yml
 结果：
 
 ```text
-Generated data/config.json with 12 RSS sources, 10 max items, policy primary_only
+Generated data/config.json with 18 RSS sources, 10 max items, policy primary_only
 47 focused tests passed
 544 full regression tests passed excluding the two known Windows-only upstream path assertions
 ACTIONLINT_OK
@@ -211,6 +211,12 @@ Sebastian Raschka        200    20 entries
 Andrej Karpathy          200    10 entries
 fast.ai                  200    20 entries
 GitHub AI and ML         200    10 entries
+PyTorch Blog             200    10 entries
+TensorFlow Blog          200    25 entries
+Apple ML Research        200    10 entries
+Berkeley BAIR Blog       200    10 entries
+CMU ML Blog              200     1 entry
+Amazon Science           200    25 entries
 Simon Willison           200    30 entries
 vLLM Blog                200    50 entries
 arXiv API                此前成功，本次连续探测触发 429 限流
