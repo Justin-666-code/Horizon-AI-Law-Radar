@@ -27,6 +27,8 @@ title: 信息来源质量审计
 | Berkeley BAIR Blog | 实验室一手文章 | 研究解释 | 实验室视角 |
 | CMU ML Blog | 大学实验室一手文章 | 研究与学习 | 更新频率不稳定 |
 | Amazon Science | 机构一手研究新闻 | 应用研究 | 机构自述 |
+| Machine Learning Mastery | 作者原创教程 | 机器学习基础与实践 | 商业内容占比需过滤 |
+| PyImageSearch | 作者原创教程 | 计算机视觉与实战 | 课程推广占比需过滤 |
 | vLLM Blog | 一手项目博客 | 推理系统 | 项目自身性能声明 |
 | Simon Willison | 作者一手记录 | 工程实践 | 个人经验不是基准测试 |
 | Lilian Weng | 作者一手文章 | 技术综述 | 长文更新频率低 |
