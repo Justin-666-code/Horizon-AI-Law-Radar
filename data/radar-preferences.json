@@ -17,8 +17,8 @@
     "ai-research": 8.3,
     "tech-news": 7.5,
     "tech-blog": 7.5,
-    "law-governance": 7.5,
-    "career-opportunity": 8.0
+    "law-governance": 6.0,
+    "career-opportunity": 6.0
   },
   "category_limits": {
     "foundations": 3,

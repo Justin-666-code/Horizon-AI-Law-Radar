@@ -51,6 +51,8 @@ def test_generates_primary_ai_foundations_config(tmp_path) -> None:
         "career-opportunity",
     ]
     assert config.processing.profile_settings["ai-foundations"].threshold == 6.8
+    assert config.processing.profile_settings["law-governance"].threshold == 6.0
+    assert config.processing.profile_settings["career-opportunity"].threshold == 6.0
     assert config.sources.hackernews.enabled is False
     assert config.sources.reddit.enabled is False
     assert config.sources.telegram.enabled is False
