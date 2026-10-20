@@ -145,6 +145,36 @@ D:\知识库\knowledge1\horizon-YYYY-MM-DD-zh.md
 
 Codex 定时自动化已配置为每天北京时间 08:00 执行，成功时静默，下载失败或目标目录不可写时才提醒。`scripts/Register-Horizon-DailySync.ps1` 也可在普通桌面 PowerShell 中注册 Windows 计划任务，作为 Codex 应用未运行时的备选；在受限沙箱内注册系统任务会被 Windows 拒绝，这不影响 Codex 自动化。
 
+## 同步到微信
+
+微信使用 Horizon 的 iLink Bot 通道，需要首次扫码登录：
+
+```powershell
+.\scripts\Login-Horizon-WeChat.ps1
+```
+
+扫码后按终端提示，在微信里给机器人发送一条任意消息，建立会话上下文。登录信息保存在 `data/wechat_session.json`，已被 `.gitignore` 忽略。
+
+每日 08:00 的知识库同步任务会在文件写入成功后发送一条紧凑日报，内容包括：
+
+- 当天日期。
+- 各栏目头条。
+- 完整 Pages 日报链接。
+
+默认只消耗 1 次微信回复额度，完整 Markdown 仍在 `D:\知识库\knowledge1`。重复运行同一日期不会重复发送。
+
+微信 iLink 实测每个会话上下文最多约 10 次回复。额度不足时，给机器人随便发送一条消息即可刷新上下文，然后重新运行：
+
+```powershell
+.\scripts\Send-Horizon-WeChat.ps1
+```
+
+需要发送全文而不是紧凑摘要时：
+
+```powershell
+.\scripts\Send-Horizon-WeChat.ps1 -Mode full -Force
+```
+
 ## 如何按你的方向微调
 
 ### 调整 AI × 法律 × 公共治理主题
