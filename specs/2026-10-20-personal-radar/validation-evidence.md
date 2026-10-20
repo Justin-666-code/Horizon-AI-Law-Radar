@@ -125,8 +125,8 @@ Pages: https://justin-666-code.github.io/Horizon-AI-Law-Radar/
 
 ```text
 Target: D:\知识库\knowledge1\horizon-2026-10-20-zh.md
-Length: 5157 bytes
-SHA256: 8F625BB7DDAF23D1B41CD3CA8BF15E8A732FFA0E3C66F0200AA55FEED1AE18DC
+Length: 7951 bytes
+SHA256: A754C416327ED54B9CBE51656C5D2BAB9374AA443471863E8B86DA07783DD748
 First run: saved
 Second run: unchanged
 Hash stable: true
@@ -148,7 +148,7 @@ actionlint .github/workflows/daily-summary.yml
 结果：
 
 ```text
-Generated data/config.json with 23 RSS sources, 10 max items, policy mixed
+Generated data/config.json with 27 RSS sources, 10 max items, policy mixed
 53 focused tests passed
 545 full regression tests passed excluding the two known Windows-only upstream path assertions
 ACTIONLINT_OK
@@ -221,6 +221,10 @@ CMU ML Blog              200     1 entry
 Amazon Science           200    25 entries
 Machine Learning Mastery 200    10 entries
 PyImageSearch            200     9 entries
+EU Digital Strategy      200     1 entry
+WIPO Press Releases      reachable, no recent item in the final run
+USPTO News               404, disabled by failure isolation
+U.S. Copyright Office    404, disabled by failure isolation
 Simon Willison           200    30 entries
 vLLM Blog                200    50 entries
 arXiv API                此前成功，本次连续探测触发 429 限流
@@ -231,20 +235,20 @@ arXiv 在 Horizon 中属于单源失败可降级路径；本次不会因限流�
 最终线上验证：
 
 ```text
-Run: 39400877622
+Run: 39403257390
 Conclusion: success
-Duration: 2m 3s
-Fetched: 21
-Analyzed: 21
-Selected: 2
+Duration: 2m 31s
+Fetched: 22
+Analyzed: 22
+Selected: 3
 AI foundations: 1/3
 Research: 1/2
 AI updates: 0/1
 Engineering: 0/2
-Law: 0/1
+Law: 1/1
 Opportunity: 0/1
-Token usage: 31799
-Final article: 5157 bytes
+Token usage: 35973
+Final article: 4009 characters / 7951 bytes
 ```
 
 入选内容：
@@ -252,7 +256,8 @@ Final article: 5157 bytes
 ```text
 Python 描述符与受控属性
 检索工具输出导致 LLM 代理准确率下降
+欧盟委员会委托开展《数字服务法》下网络金融诈骗研究
 ```
 
-法律查询增加 `max_items=10` 后，从上一轮的 34 条候选降到 2 条；选调最多 5 条、法硕最多 3 条。今天辅线候选没有达到门槛，因此法律与机会栏目为空。系统不会为了填满栏目把泛法律新闻或培训广告塞进日报。
+法律查询增加 `max_items=10` 后，从上一轮的 34 条候选降到 2 条；选调最多 5 条、法硕最多 3 条。官方知识产权源中 EU Digital Strategy 贡献 1 条法律治理内容，USPTO 与 Copyright Office RSS 返回 404，Horizon 按单源失败隔离。法硕/选调候选低于 3.5 分，仍未进入日报。
 
