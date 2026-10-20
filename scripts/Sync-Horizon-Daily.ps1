@@ -9,7 +9,10 @@ param(
     [string]$Destination = "D:\知识库\knowledge1",
     [string]$Date = (Get-Date -Format "yyyy-MM-dd"),
     [int]$WaitMinutes = 90,
-    [switch]$Force
+    [switch]$Force,
+    [switch]$SendWeChat,
+    [ValidateSet("compact", "full")]
+    [string]$WeChatMode = "compact"
 )
 
 $ErrorActionPreference = "Stop"
@@ -93,4 +96,15 @@ else {
 }
 
 Write-Output $TargetPath
+
+if ($SendWeChat) {
+    $WeChatSender = Join-Path $PSScriptRoot "Send-Horizon-WeChat.ps1"
+    & powershell.exe -NoProfile -ExecutionPolicy Bypass -File $WeChatSender `
+        -Date $Date `
+        -SummaryPath $TargetPath `
+        -Mode $WeChatMode
+    if ($LASTEXITCODE -ne 0) {
+        throw "WeChat delivery failed with exit code $LASTEXITCODE"
+    }
+}
 

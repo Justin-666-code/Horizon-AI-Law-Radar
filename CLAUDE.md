@@ -24,6 +24,7 @@ scripts/apply_radar_preferences.py - 校验偏好并生成运行配置
 KEY-SETUP.md - 必需与可选密钥的官方获取入口
 .github/workflows/daily-summary.yml - 每日采集和 Pages 发布编排
 scripts/Sync-Horizon-Daily.ps1 - 将 gh-pages 日报同步到本机知识库
+scripts/Send-Horizon-WeChat.ps1 - 将同步后的日报发送到微信
 </config>
 
 法则: 上游业务代码只读，个人偏好写配置，处理标准写 profile，密钥只进环境变量。
