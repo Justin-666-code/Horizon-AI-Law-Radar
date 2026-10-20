@@ -9,17 +9,16 @@ title: 个人雷达部署指南
 
 ## 你会得到什么
 
-- `机会公告`：定向选调、公务员招录、人才引进、法硕招生、复试、调剂和分数线。
-- `法律与数字治理`：AI 立法、监管、司法、数据与个人信息保护、数字权利。
-- `AI 研究前沿`：带数量上限的 arXiv CS.AI/CS.CL 新论文、MIT AI 研究新闻。
-- `AI 产品与产业`：模型与工具发布、开源项目、产业动态。
-- `工程实践`：vLLM、Simon Willison 等可落地的工程文章。
+- `AI 基础与动手实践`：数学、机器学习、编程、训练、评测和可执行练习。
+- `AI 研究前沿`：严格限额的一手研究预印本和机构研究。
+- `AI 产品与产业`：官方模型与工具发布、一手项目更新。
+- `工程实践`：vLLM、GitHub AI、Simon Willison 等第一手工程文章。
 
-默认每天最多 18 条，只输出中文。所有生成结果在 `data/summaries/`，GitHub Actions 会把 `docs/` 发布到 Pages。
+默认每天最多 10 条，只输出中文。法律治理、法硕和选调来源仍保留但默认关闭，因为当前阶段优先建立 AI 基础。所有生成结果在 `data/summaries/`，GitHub Actions 会把 `docs/` 发布到 Pages。
 
 ## 覆盖边界
 
-Google News 不是官方公告的完整索引，省级人事考试网、学校研究生院和微信公众号发布的信息可能没有被收录。因此这套雷达适合做每日发现和提醒，不适合作为唯一截止日期来源。涉及报名、资格复审、法硕调剂和定向选调的日期，请给自己保留每周一次的人工官网复核。
+默认策略是一手优先，因此不使用 Google News、Reddit、Telegram 等二手发现层。未来启用法律或选调信息时，省级人事考试网、学校研究生院和微信公众号仍可能不可覆盖，必须保留人工官网复核。
 
 ## 第一步：拿到唯一的必需密钥
 
@@ -76,7 +75,7 @@ Get-Content (Get-ChildItem data\summaries\*.md | Sort-Object LastWriteTime | Sel
 
 ### 3.1 推送到 GitHub
 
-把这个目录作为仓库根目录推送到你自己的 GitHub 仓库。不要只上传 `data/config.json`，因为它被 `.gitignore` 忽略；Actions 使用可追踪的 `data/config.github.json`，并在运行时复制为 `data/config.json`。
+把这个目录作为仓库根目录推送到你自己的 GitHub 仓库。不要只上传 `data/config.json`，因为它被 `.gitignore` 忽略；Actions 使用 `data/config.github.json` 和 `data/radar-preferences.json` 生成运行配置。
 
 如果本机没有 Git，推荐安装 [GitHub Desktop](https://desktop.github.com/)，选择 `File` → `Add local repository`，选中这个目录；仓库尚不存在时按提示创建，再点击 `Publish repository`。发布后回到浏览器继续添加 Secret。
 
@@ -104,7 +103,7 @@ Get-Content (Get-ChildItem data\summaries\*.md | Sort-Object LastWriteTime | Sel
 
 1. 安装 Python 与 uv。
 2. 安装 Horizon 依赖。
-3. 把 `data/config.github.json` 复制成运行配置。
+3. 把 `data/radar-preferences.json` 编译成运行配置。
 4. 抓取、评分、去重、补充背景并生成中文简报。
 5. 把 `docs/` 发布到 `gh-pages` 分支。
 
@@ -131,9 +130,7 @@ https://<你的 GitHub 用户名>.github.io/<仓库名>/
 
 ## 每天怎么读
 
-优先看“机会公告”，只看带明确机构、阶段和日期的项目。遇到报名、资格、专业限制或截止时间，必须点回原文；Horizon 的摘要是导航，不是官方文件。
-
-接着看“法律与数字治理”，区分草案、征求意见、正式生效、司法裁判和媒体评论。最后再看 AI 研究、产业和工程实践。
+优先看“AI 基础与动手实践”，把能在一个月至三个月内完成的练习挑出来。接着看少量研究论文，明确它们是预印本还是正式发表。最后看官方产品更新和工程实践。
 
 ## 同步到本机知识库
 
@@ -151,6 +148,8 @@ Codex 定时自动化已配置为每天北京时间 08:00 执行，成功时静�
 
 ### 可选：缩小选调地域
 
+这属于未来阶段。先把 `information_policy` 改为 `mixed`，再启用 `secondary_law_and_career` 来源组。
+
 编辑 `data/config.github.json` 中 `Google News - 选调与公务员` 的 URL，在查询词中加入你的目标省份，例如：
 
 ```text
@@ -161,7 +160,9 @@ Codex 定时自动化已配置为每天北京时间 08:00 执行，成功时静�
 
 ### 关注特定法硕院校
 
-在 `data/config.json` 和 `data/config.github.json` 中新增一条 RSS，使用 Google News 搜索：
+同上，需要先启用二手来源组；不要把院校条件写进通用 profile。
+
+在 `data/config.github.json` 中新增一条 RSS，并在 `data/radar-preferences.json` 的来源组中登记名称，再运行偏好生成器：
 
 ```text
 site:edu.cn 法律硕士 招生 <学校名>
@@ -173,9 +174,9 @@ site:edu.cn 法律硕士 招生 <学校名>
 
 优先调低这四项：
 
-- `sources.rss` 中 Google News 查询数量。
+- `source_groups` 中启用的来源组数量。
 - `collection.time_window_hours`，默认 24 小时。
-- `digest.max_items`，默认 18 条。
+- `daily_item_limit`，默认 10 条。
 - `ai.analysis_concurrency` 和 `ai.enrichment_concurrency`，默认 2 和 1。
 
 不要为了省成本把 `ai.max_tokens` 降到 2000 以下；公告细节和结构化输出容易截断。

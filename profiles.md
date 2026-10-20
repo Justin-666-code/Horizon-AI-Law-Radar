@@ -23,6 +23,14 @@ rather than process the item with all of them.
 | `finance-news` | Markets, macroeconomics, company finance, and economically material policy | Summary and background; direct impact when useful |
 | `ai-creator` | AI developments with potential for content creation | Summary; timely hooks, content angles, and community discussion when useful |
 
+This personal deployment additionally ships:
+
+| Profile | What it looks for | What it produces |
+| --- | --- | --- |
+| `ai-foundations` | Foundations, learning paths, implementation practice, and evaluation for a second-year AI undergraduate | Learning value, prerequisites, and a concrete exercise |
+| `law-governance` | Legal instruments, regulation, enforcement, and digital governance | Change, impact, and verification step; disabled by default |
+| `career-opportunity` | Law-master and public-service opportunities | Eligibility, timeline, and verification step; disabled by default |
+
 Start with a built-in profile, then adjust its prompts or blocks to match your reading needs.
 
 ## Directory Layout
