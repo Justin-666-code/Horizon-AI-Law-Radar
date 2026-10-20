@@ -35,13 +35,17 @@ def test_personal_radar_config_and_profiles_are_consistent():
 
     registry.validate_source_references(config.sources.model_dump(mode="json"))
 
-    assert {"ai-research", "law-governance", "career-opportunity"} <= registry.ids
+    assert {
+        "ai-foundations",
+        "ai-research",
+        "law-governance",
+        "career-opportunity",
+    } <= registry.ids
     assert set(config.processing.profile_settings) <= registry.ids
     assert config.ai.languages == ["zh"]
-    assert config.digest.max_items == 18
+    assert config.digest.max_items == 10
     assert config.digest.profile_order == [
-        "career-opportunity",
-        "law-governance",
+        "ai-foundations",
         "ai-research",
         "tech-news",
         "tech-blog",

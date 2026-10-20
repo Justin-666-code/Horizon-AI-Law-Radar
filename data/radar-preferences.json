@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "stage": "人工智能本科二年级",
+  "information_policy": "primary_only",
+  "daily_item_limit": 10,
+  "profile_order": [
+    "ai-foundations",
+    "ai-research",
+    "tech-news",
+    "tech-blog"
+  ],
+  "thresholds": {
+    "ai-foundations": 6.8,
+    "ai-research": 8.3,
+    "tech-news": 7.5,
+    "tech-blog": 7.0,
+    "law-governance": 8.5,
+    "career-opportunity": 8.5
+  },
+  "category_limits": {
+    "foundations": 4,
+    "research": 3,
+    "ai-updates": 2,
+    "engineering": 3,
+    "opportunity": 0,
+    "law": 0,
+    "other": 1
+  },
+  "source_groups": {
+    "primary_ai": {
+      "tier": "primary",
+      "enabled": true,
+      "rss": [
+        "arXiv CS.AI + CS.CL",
+        "OpenAI News",
+        "MIT News AI",
+        "Microsoft Research",
+        "Google AI Blog",
+        "Lilian Weng",
+        "Sebastian Raschka",
+        "Andrej Karpathy",
+        "fast.ai",
+        "GitHub AI and ML",
+        "Simon Willison",
+        "vLLM Blog"
+      ],
+      "github": [],
+      "providers": []
+    },
+    "open_source_releases": {
+      "tier": "primary",
+      "enabled": true,
+      "rss": [],
+      "github": [
+        "huggingface/transformers",
+        "vllm-project/vllm",
+        "ollama/ollama",
+        "pytorch/pytorch"
+      ],
+      "providers": []
+    },
+    "community_discovery": {
+      "tier": "secondary",
+      "enabled": false,
+      "rss": [],
+      "github": [],
+      "providers": [
+        "hackernews",
+        "reddit",
+        "telegram",
+        "ossinsight"
+      ]
+    },
+    "secondary_ai_news": {
+      "tier": "secondary",
+      "enabled": false,
+      "rss": [
+        "Google News - 中文 AI 前沿"
+      ],
+      "github": [],
+      "providers": []
+    },
+    "primary_policy": {
+      "tier": "primary",
+      "enabled": false,
+      "rss": [
+        "EFF Digital Rights"
+      ],
+      "github": [],
+      "providers": []
+    },
+    "secondary_law_and_career": {
+      "tier": "secondary",
+      "enabled": false,
+      "rss": [
+        "Google News - AI 法律与治理",
+        "Google News - 法律硕士招生",
+        "Google News - 选调与公务员"
+      ],
+      "github": [],
+      "providers": []
+    }
+  }
+}
+

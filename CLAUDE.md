@@ -5,7 +5,7 @@ Python + uv + GitHub Actions + RSS/Atom + Qwen API
 
 <directory>
 src/ - Horizon 采集、分类、评分、增强与简报流水线 (9子目录: ai, processing, scrapers, services, setup, storage, extractors, mcp, tests)
-profiles/ - 内容域画像与提示词 (7套: tech-news, tech-blog, finance-news, ai-creator, ai-research, law-governance, career-opportunity)
+profiles/ - 内容域画像与提示词 (8套: tech-news, tech-blog, finance-news, ai-creator, ai-foundations, ai-research, law-governance, career-opportunity)
 data/ - 运行配置、历史简报和本地状态
 docs/ - 上游文档、Pages 静态站与个人部署指南
 .github/workflows/ - 每日采集与 Pages 发布
@@ -17,7 +17,9 @@ scripts/ - 上游运维脚本与 Windows 知识库同步任务
 <config>
 .python-version - uv 与开发者统一使用 Python 3.12
 data/config.github.json - Actions 使用的可追踪个人配置
-data/config.json - 本地运行配置，默认被 Git 忽略
+data/radar-preferences.json - 日常修改的阶段、来源层级、阈值和配额
+data/config.json - 由偏好生成器编译出的运行配置，默认被 Git 忽略
+scripts/apply_radar_preferences.py - 校验偏好并生成运行配置
 .env.personal.example - 个人密钥变量名样例，不含真实密钥
 KEY-SETUP.md - 必需与可选密钥的官方获取入口
 .github/workflows/daily-summary.yml - 每日采集和 Pages 发布编排

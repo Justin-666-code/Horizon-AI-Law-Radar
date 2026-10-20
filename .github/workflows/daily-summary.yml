@@ -33,8 +33,8 @@ jobs:
       - name: Install dependencies
         run: uv sync --frozen --extra dev
 
-      - name: Prepare daily config
-        run: cp data/config.github.json data/config.json
+      - name: Generate daily config from preferences
+        run: uv run python scripts/apply_radar_preferences.py --input data/config.github.json --preferences data/radar-preferences.json --output data/config.json
 
       - name: Validate personal configuration
         env:
@@ -45,7 +45,7 @@ jobs:
             exit 1
           fi
           uv run python -m json.tool data/config.json > /dev/null
-          uv run pytest tests/test_personal_radar.py -q
+          uv run pytest tests/test_radar_preferences.py tests/test_personal_radar.py -q
 
       - name: Run Horizon
         env:

@@ -20,11 +20,11 @@ python -c "from pathlib import Path; from src.models import Config; from src.pro
 结果：
 
 ```text
-PROFILES=ai-creator,ai-research,career-opportunity,finance-news,law-governance,tech-blog,tech-news
-CONFIG_OK profiles=7 rss=10 profiles_order=career-opportunity,law-governance,ai-research,tech-news,tech-blog
+PROFILES=ai-creator,ai-foundations,ai-research,career-opportunity,finance-news,law-governance,tech-blog,tech-news
+CONFIG_OK profiles=8 generated_config=true
 ```
 
-`data/config.json` 与 `data/config.github.json` 的 SHA-256 一致，且都通过 `python -m json.tool`。
+`data/config.json` 由 `data/radar-preferences.json` 生成，不再手工复制或维护。
 
 ## 自动化测试
 
@@ -134,4 +134,87 @@ Mtime stable: true
 ```
 
 Codex 每日 08:00 自动化已创建并持久化到 `C:\Users\16339\.codex\automations\horizon\automation.toml`。Windows 系统计划任务在当前受限沙箱身份下因 `New-ScheduledTaskAction` 权限被拒绝，脚本保留给普通桌面环境作为可选备选；每日同步由已验证的 Codex 自动化承担。
+
+## 一手信息与大二适配整改
+
+验证命令：
+
+```powershell
+python scripts/apply_radar_preferences.py --input data/config.github.json --preferences data/radar-preferences.json --output data/config.json
+pytest tests/test_radar_preferences.py tests/test_personal_radar.py tests/test_profiles.py -q
+actionlint .github/workflows/daily-summary.yml
+```
+
+结果：
+
+```text
+Generated data/config.json with 12 RSS sources, 10 max items, policy primary_only
+47 focused tests passed
+544 full regression tests passed excluding the two known Windows-only upstream path assertions
+ACTIONLINT_OK
+```
+
+生成配置的默认来源：
+
+```text
+arXiv CS.AI + CS.CL
+OpenAI News
+MIT News AI
+Microsoft Research
+Google AI Blog
+Lilian Weng
+Sebastian Raschka
+Andrej Karpathy
+fast.ai
+GitHub AI and ML
+Simon Willison
+vLLM Blog
+```
+
+默认关闭：
+
+```text
+Hacker News
+Reddit
+Telegram
+OSS Insight
+Google News (all queries)
+EFF Digital Rights
+```
+
+日报画像顺序：
+
+```text
+ai-foundations, ai-research, tech-news, tech-blog
+```
+
+内容域配额：
+
+```text
+foundations=4
+research=3
+ai-updates=2
+engineering=3
+other=1
+max_items=10
+```
+
+一手源实时探测：
+
+```text
+OpenAI News              200  1300 entries
+MIT News AI              200    50 entries
+Microsoft Research       200    10 entries
+Google AI Blog           200    20 entries
+Lilian Weng              200    53 entries
+Sebastian Raschka        200    20 entries
+Andrej Karpathy          200    10 entries
+fast.ai                  200    20 entries
+GitHub AI and ML         200    10 entries
+Simon Willison           200    30 entries
+vLLM Blog                200    50 entries
+arXiv API                此前成功，本次连续探测触发 429 限流
+```
+
+arXiv 在 Horizon 中属于单源失败可降级路径；本次不会因限流删除该研究入口，但 Microsoft Research、MIT News AI 等一手研究源仍可在 arXiv 限流时提供内容。
 

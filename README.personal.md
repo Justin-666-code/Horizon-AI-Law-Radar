@@ -16,10 +16,12 @@
 - 正式部署优先用 GitHub Actions，因为法律与选调搜索依赖的部分 RSS 在国内本地网络可能不可用。
 - 每日日报会自动同步到 `D:\知识库\knowledge1\horizon-YYYY-MM-DD-zh.md`。
 
-配置入口：
+日常修改只需先看：
 
-- [`data/config.github.json`](data/config.github.json)：Actions 使用的来源、阈值和配额。
-- [`profiles/`](profiles/)：AI 研究、法律治理、机会公告的判断与写作标准。
+- [`data/radar-preferences.json`](data/radar-preferences.json)：每日条数、阈值、分类配额和一手/二手策略。
+- [`docs/preferences-guide.md`](docs/preferences-guide.md)：如何修改检索标准。
+- [`docs/information-quality.md`](docs/information-quality.md)：当前来源的一手性与局限。
+- [`profiles/`](profiles/)：AI 基础、研究和工程内容的判断与写作标准。
 - [`.github/workflows/daily-summary.yml`](.github/workflows/daily-summary.yml)：每日采集与 Pages 发布。
 - [`specs/2026-10-20-personal-radar/validation.md`](specs/2026-10-20-personal-radar/validation.md)：验收与证据要求。
 
