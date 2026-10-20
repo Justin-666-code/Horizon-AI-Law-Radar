@@ -1,0 +1,41 @@
+{
+  "id": "career-opportunity",
+  "name": "Law and Public Service Opportunities",
+  "display_names": {
+    "zh": "机会公告"
+  },
+  "match": "match.md",
+  "analysis": "analysis.md",
+  "content": {
+    "analysis_max_chars": 5000,
+    "enrichment_max_chars": 9000,
+    "sampling": "prefix"
+  },
+  "enrichment": {
+    "prompt": "enrichment.md",
+    "blocks": [
+      {
+        "id": "summary",
+        "type": "section",
+        "tools": [],
+        "primary": true
+      },
+      {
+        "id": "eligibility",
+        "type": "section",
+        "tools": []
+      },
+      {
+        "id": "timeline",
+        "type": "section",
+        "tools": []
+      },
+      {
+        "id": "action",
+        "type": "section",
+        "tools": []
+      }
+    ]
+  }
+}
+

@@ -1,0 +1,68 @@
+name: Daily Horizon Summary
+
+on:
+  schedule:
+    # 23:00 UTC = 07:00 Asia/Shanghai. GitHub may delay scheduled jobs.
+    - cron: "0 23 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: horizon-daily
+  cancel-in-progress: false
+
+jobs:
+  daily-summary:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.13.3"
+
+      - name: Install dependencies
+        run: uv sync --frozen --extra dev
+
+      - name: Prepare daily config
+        run: cp data/config.github.json data/config.json
+
+      - name: Validate personal configuration
+        env:
+          DASHSCOPE_API_KEY: ${{ secrets.DASHSCOPE_API_KEY }}
+        run: |
+          if [ -z "$DASHSCOPE_API_KEY" ]; then
+            echo "::error::Missing DASHSCOPE_API_KEY repository secret."
+            exit 1
+          fi
+          uv run python -m json.tool data/config.json > /dev/null
+          uv run pytest tests/test_personal_radar.py -q
+
+      - name: Run Horizon
+        env:
+          DASHSCOPE_API_KEY: ${{ secrets.DASHSCOPE_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HORIZON_WEBHOOK_URL: ${{ secrets.HORIZON_WEBHOOK_URL }}
+        run: uv run horizon --hours 24
+
+      - name: Set current date
+        run: echo "DATE=$(date +'%Y-%m-%d')" >> "$GITHUB_ENV"
+
+      - name: Publish GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          keep_files: true
+          publish_branch: gh-pages
+          enable_jekyll: true
+          commit_message: "Daily summary: ${{ env.DATE }}"
