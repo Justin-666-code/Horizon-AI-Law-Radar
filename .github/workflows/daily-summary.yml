@@ -10,6 +10,9 @@ concurrency:
   group: horizon-daily
   cancel-in-progress: false
 
+env:
+  TZ: Asia/Shanghai
+
 jobs:
   daily-summary:
     runs-on: ubuntu-latest
