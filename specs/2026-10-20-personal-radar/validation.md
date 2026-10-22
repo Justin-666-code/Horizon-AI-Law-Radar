@@ -5,6 +5,7 @@
 1. `uv run pytest tests/test_radar_preferences.py tests/test_personal_radar.py tests/test_profiles.py tests/test_cli.py -q`
 2. 从 `data/radar-preferences.json` 生成 `data/config.json`。
 3. 使用项目 `Config` 与 `ProfileRegistry` 加载生成配置，确认所有来源 profile 引用有效。
+4. 使用 UTC `23:30` 边界测试 `_summary_date`，`Asia/Shanghai` 必须返回次日日期，`UTC` 保持当日。
 
 ## 用户流验证
 

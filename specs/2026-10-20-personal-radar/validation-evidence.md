@@ -260,3 +260,38 @@ Python 描述符与受控属性
 
 法律查询增加 `max_items=10` 后，从 34 条候选降到 10 条以内。最终融合线命中 2 条：一条欧盟官方数字政策，一条中国农业农村部 AI 公共治理案例。默认日报不再包含法硕招生、选调报名或考试培训来源。
 
+## 日报日期时区修复
+
+缺陷现象：
+
+```text
+Workflow date: 2026-10-22
+Horizon generated file: _posts/2026-10-21-summary-zh.md
+```
+
+根因：Runner 的提交日期使用 `TZ=Asia/Shanghai`，但 `HorizonOrchestrator` 仍显式使用 UTC 生成摘要日期。
+
+修复：
+
+```text
+HORIZON_TIMEZONE=Asia/Shanghai
+_summary_date(2026-10-21T23:30Z, Asia/Shanghai) == 2026-10-22
+_summary_date(2026-10-21T23:30Z, UTC) == 2026-10-21
+```
+
+复验运行：
+
+```text
+Run: 39711234040
+Conclusion: success
+Duration: 3m 18s
+Generated: _posts/2026-10-22-summary-zh.md
+Knowledge file: D:\知识库\knowledge1\horizon-2026-10-22-zh.md
+Length: 12498 bytes
+SHA256: AAA91057A54C980C28CE51745E455A494640211BB98096EED17062CF19F55059
+WeChat chunks: 1
+WeChat replies left: 9/10
+```
+
+微信额度耗尽后，用户向机器人发送消息恢复上下文，补发成功。投递状态 `2026-10-22` 已记录，重复发送保护生效。全量测试 `549 passed`。
+
