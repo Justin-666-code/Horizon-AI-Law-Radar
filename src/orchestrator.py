@@ -1,12 +1,19 @@
 """Main orchestrator coordinating the entire workflow."""
 
+# [INPUT]: 依赖抓取器、AI 处理器、存储、投递服务及 HORIZON_TIMEZONE
+# [OUTPUT]: 对外提供 HorizonOrchestrator 与按配置时区生成的日报日期
+# [POS]: src 的流水线总编排器，协调抓取、筛选、增强、摘要和投递
+# [PROTOCOL]: 变更时更新此头部，然后检查 CLAUDE.md
+
 import asyncio
 from collections import defaultdict
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta, timezone
+import os
 from pathlib import Path
 from typing import Dict, List, Literal, Optional
 from urllib.parse import unquote_plus, urlsplit
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 import httpx
 from rich.console import Console
 
@@ -33,6 +40,19 @@ from .ai.summarizer import DailySummarizer
 from .ai.enricher import ContentEnricher, EnrichmentBatchResult
 from .ai.tokens import get_usage_snapshot
 from .processing import ProfileRegistry
+
+
+def _summary_date(now: Optional[datetime] = None, timezone_name: Optional[str] = None) -> str:
+    """Return the configured local date for summary filenames and delivery."""
+    name = timezone_name or os.environ.get("HORIZON_TIMEZONE", "UTC")
+    try:
+        target = ZoneInfo(name)
+    except ZoneInfoNotFoundError:
+        target = timezone.utc
+    moment = now or datetime.now(timezone.utc)
+    if moment.tzinfo is None:
+        moment = moment.replace(tzinfo=timezone.utc)
+    return moment.astimezone(target).strftime("%Y-%m-%d")
 from .processing.tools import ToolRegistry
 
 
@@ -299,7 +319,7 @@ class HorizonOrchestrator:
             await self.enrich_items(important_items)
 
             # 7. Generate and save daily summaries for each configured language
-            today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+            today = _summary_date()
             for lang in self.config.ai.languages:
                 summarizer = DailySummarizer(
                     profile_names=self.profiles.names,
@@ -403,12 +423,12 @@ class HorizonOrchestrator:
             # Send webhook failure notification if configured
             if self.webhook_notifier:
                 await self.webhook_notifier.send_failure(
-                    date=datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+                    date=_summary_date(),
                     error_message=str(e),
                 )
             if self.wechat_notifier:
                 await self.wechat_notifier.send_failure(
-                    date=datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+                    date=_summary_date(),
                     error_message=str(e),
                 )
 

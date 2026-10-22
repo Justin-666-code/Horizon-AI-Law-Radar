@@ -12,6 +12,7 @@ concurrency:
 
 env:
   TZ: Asia/Shanghai
+  HORIZON_TIMEZONE: Asia/Shanghai
 
 jobs:
   daily-summary:
