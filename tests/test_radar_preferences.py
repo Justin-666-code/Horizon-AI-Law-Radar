@@ -50,7 +50,7 @@ def test_generates_primary_ai_foundations_config(tmp_path) -> None:
         "law-governance",
     ]
     assert config.processing.profile_settings["ai-foundations"].threshold == 5.0
-    assert config.processing.profile_settings["law-governance"].threshold == 4.5
+    assert config.processing.profile_settings["law-governance"].threshold == 6.0
     assert config.sources.hackernews.enabled is False
     assert config.sources.reddit.enabled is False
     assert config.sources.telegram.enabled is False
@@ -61,7 +61,7 @@ def test_generates_primary_ai_foundations_config(tmp_path) -> None:
         if source.name.startswith("Google News")
     }
     assert google_sources["Google News - 中文 AI 前沿"] is False
-    assert google_sources["Google News - AI法律治理与数字政府"] is True
+    assert google_sources["Google News - AI法律治理与数字政府"] is False
     assert "Google News - 法律硕士招生" not in google_sources
     assert "Google News - 选调与公务员" not in google_sources
     assert any(
