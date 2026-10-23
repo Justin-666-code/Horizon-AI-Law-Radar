@@ -12,11 +12,11 @@
     "law-governance"
   ],
   "thresholds": {
-    "ai-foundations": 6.8,
-    "ai-research": 8.3,
-    "tech-news": 7.5,
-    "tech-blog": 7.5,
-    "law-governance": 6.0
+    "ai-foundations": 5.0,
+    "ai-research": 6.0,
+    "tech-news": 5.5,
+    "tech-blog": 5.5,
+    "law-governance": 4.5
   },
   "category_limits": {
     "foundations": 3,
