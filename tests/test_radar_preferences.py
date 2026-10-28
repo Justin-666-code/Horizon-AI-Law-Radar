@@ -45,8 +45,8 @@ def test_generates_primary_ai_foundations_config(tmp_path) -> None:
     assert config.digest.profile_order == [
         "ai-foundations",
         "ai-research",
-        "tech-news",
         "tech-blog",
+        "tech-news",
         "law-governance",
     ]
     assert config.processing.profile_settings["ai-foundations"].threshold == 5.0
@@ -70,6 +70,7 @@ def test_generates_primary_ai_foundations_config(tmp_path) -> None:
     )
     assert config.digest.category_groups["foundations"].limit == 3
     assert config.digest.category_groups["research"].limit == 2
+    assert config.digest.category_groups["engineering"].limit == 3
     assert config.digest.category_groups["law"].limit == 2
     assert "opportunity" not in config.digest.category_groups
 

@@ -47,8 +47,8 @@ def test_personal_radar_config_and_profiles_are_consistent():
     assert config.digest.profile_order == [
         "ai-foundations",
         "ai-research",
-        "tech-news",
         "tech-blog",
+        "tech-news",
         "law-governance",
     ]
     assert config.sources.google_news is None
@@ -66,4 +66,29 @@ def test_personal_radar_config_and_profiles_are_consistent():
     ]
     assert len(grouped_categories) == len(set(grouped_categories))
     assert set(grouped_categories) <= source_categories
+
+
+def test_route_specific_profiles_keep_required_judgment_blocks():
+    config = Config.model_validate_json(
+        (ROOT / "data" / "config.github.json").read_text(encoding="utf-8")
+    )
+    registry = ProfileRegistry.load(
+        ROOT / "profiles", config.processing.default_profile
+    )
+
+    tech_blog = registry.get("tech-blog")
+    tech_news = registry.get("tech-news")
+    law_governance = registry.get("law-governance")
+
+    assert tech_blog.definition.display_names["zh"] == "AI 产品工程"
+    assert tech_news.definition.display_names["zh"] == "AI 产品与产业"
+    assert "route_value" in {
+        block.id for block in tech_blog.definition.enrichment.blocks
+    }
+    assert "route_value" in {
+        block.id for block in tech_news.definition.enrichment.blocks
+    }
+    assert "route_layer" in {
+        block.id for block in law_governance.definition.enrichment.blocks
+    }
 

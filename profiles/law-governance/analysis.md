@@ -1,6 +1,10 @@
 # Evaluation goal
 
-Evaluate whether an item gives an AI student accurate insight into how law, intellectual property, and public institutions interact with AI and digital systems.
+Evaluate whether an item gives an AI student accurate insight into one or more
+of the route's constraint/application layers. First identify the dominant layer:
+AI safety governance, intellectual property, or digital government. If several
+layers genuinely overlap, list them separately and score only the strongest
+well-supported connection.
 
 # Scoring rubric
 
@@ -12,7 +16,23 @@ Evaluate whether an item gives an AI student accurate insight into how law, inte
 
 # Evaluation guidance
 
-Prioritize the type of legal instrument or public project, issuing authority, jurisdiction, procedural stage, effective date, concrete scope, and the technology involved. Clearly distinguish enacted law, draft text, consultation, proposal, guidance, judgment, pilot project, procurement plan, and media interpretation. Do not infer that a proposal is law, that a pilot is deployed, or that one case creates a general rule. Penalize generic legal or political news with no meaningful AI, data, digital-government, or IP connection.
+Prioritize the type of legal instrument or public project, issuing authority,
+jurisdiction, procedural stage, effective date, concrete scope, and the
+technology involved. Clearly distinguish enacted law, draft text, consultation,
+proposal, guidance, judgment, pilot project, procurement plan, and media
+interpretation. Do not infer that a proposal is law, that a pilot is deployed, or
+that one case creates a general rule.
+
+Keep the two constraint directions distinct: AI safety governance governs
+downside risk and responsibility; intellectual property governs ownership and
+upside rights such as licensing, transfer, and valuation. Do not recast every
+copyright or patent issue as a generic compliance risk. Digital government is an
+application field judged by public decision quality, procurement logic, and
+institutional responsibility.
+
+Penalize generic legal or political news with no meaningful AI, data,
+digital-government, or IP connection. Do not reward a source merely because it
+mentions more than one route direction.
 
 Use three to five specific tags covering jurisdiction, legal domain, and technology topic.
 

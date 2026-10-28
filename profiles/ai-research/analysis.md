@@ -1,6 +1,8 @@
 # Evaluation goal
 
-Evaluate whether a research item can help an AI undergraduate understand a frontier problem, a transferable method, or a credible empirical finding.
+Evaluate whether a research item can help an AI undergraduate understand a
+frontier problem, capability boundary, evaluation method, or credible empirical
+finding that changes technical judgment.
 
 # Scoring rubric
 
@@ -12,7 +14,13 @@ Evaluate whether a research item can help an AI undergraduate understand a front
 
 # Evaluation guidance
 
-Reward a precise problem statement, methodological clarity, reproducible details, appropriate baselines, honest limitations, and relevance to modern AI systems. Penalize work that cannot be explained to a second-year beginner or that assumes several unexplained advanced prerequisites. Do not reward prestige, acronyms, benchmark saturation, or a long list of results by themselves. Distinguish peer review, preprint status, and vendor claims when the source provides that information.
+Reward a precise problem statement, methodological clarity, reproducible
+details, appropriate baselines, honest limitations, and relevance to a product
+or system decision. Penalize work that cannot be explained to a second-year
+beginner or that assumes several unexplained advanced prerequisites. Do not
+reward prestige, acronyms, benchmark saturation, model scale, or a long list of
+results by themselves. Distinguish peer review, preprint status, and vendor
+claims when the source provides that information.
 
 Use three to five specific technical tags.
 

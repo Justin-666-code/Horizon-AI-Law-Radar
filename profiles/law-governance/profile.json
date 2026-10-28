@@ -21,6 +21,11 @@
         "primary": true
       },
       {
+        "id": "route_layer",
+        "type": "section",
+        "tools": []
+      },
+      {
         "id": "change",
         "type": "section",
         "tools": []

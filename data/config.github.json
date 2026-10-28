@@ -359,20 +359,20 @@
     "profile_order": [
       "ai-foundations",
       "ai-research",
-      "tech-news",
       "tech-blog",
+      "tech-news",
       "law-governance"
     ],
     "category_groups": {
       "foundations": {
-        "name": "AI 基础与动手实践",
+        "name": "计算机与 AI 基础（输入层）",
         "limit": 3,
         "categories": [
           "ai-foundations"
         ]
       },
       "law": {
-        "name": "AI × 法律 × 公共治理",
+        "name": "AI 治理、知识产权与数字政府",
         "limit": 2,
         "categories": [
           "ai-law",
@@ -381,14 +381,14 @@
         ]
       },
       "research": {
-        "name": "AI 研究前沿",
+        "name": "前沿 AI 能力边界（输入层）",
         "limit": 2,
         "categories": [
           "ai-research"
         ]
       },
       "ai-updates": {
-        "name": "AI 产品与产业",
+        "name": "AI 产品与产业动态（输出层）",
         "limit": 1,
         "categories": [
           "ai-news",
@@ -396,7 +396,7 @@
         ]
       },
       "engineering": {
-        "name": "工程实践",
+        "name": "AI 产品与工程实践（输出层）",
         "limit": 2,
         "categories": [
           "ai-engineering"

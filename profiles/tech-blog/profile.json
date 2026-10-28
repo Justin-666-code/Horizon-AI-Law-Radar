@@ -2,7 +2,7 @@
   "id": "tech-blog",
   "name": "Technology Blog",
   "display_names": {
-    "zh": "科技博客"
+    "zh": "AI 产品工程"
   },
   "match": "match.md",
   "analysis": "analysis.md",
@@ -28,6 +28,12 @@
         "id": "takeaway",
         "type": "section",
         "tools": []
+      },
+      {
+        "id": "route_value",
+        "type": "section",
+        "tools": [],
+        "optional": true
       }
     ]
   }

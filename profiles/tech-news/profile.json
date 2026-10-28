@@ -2,7 +2,7 @@
   "id": "tech-news",
   "name": "Technology News",
   "display_names": {
-    "zh": "科技新闻"
+    "zh": "AI 产品与产业"
   },
   "match": "match.md",
   "analysis": "analysis.md",
@@ -28,6 +28,12 @@
       },
       {
         "id": "community_discussion",
+        "type": "section",
+        "tools": [],
+        "optional": true
+      },
+      {
+        "id": "route_value",
         "type": "section",
         "tools": [],
         "optional": true
