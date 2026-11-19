@@ -138,7 +138,7 @@ https://<你的 GitHub 用户名>.github.io/<仓库名>/
 每天生成的 Markdown 会由本机定时自动化同步到：
 
 ```text
-D:\知识库\knowledge1\horizon-YYYY-MM-DD-zh.md
+D:\TuringEcho\drafts\horizon-daily\horizon-YYYY-MM-DD-zh.md
 ```
 
 同步器位于 `scripts/Sync-Horizon-Daily.ps1`。它从仓库的 `gh-pages` 分支读取日报，先写临时文件再原子替换，内容没有变化时不会重写。日志位于工作区的 `work/logs/horizon-daily-sync.log`。
@@ -161,7 +161,7 @@ Codex 定时自动化已配置为每天北京时间 08:00 执行，成功时静�
 - 各栏目头条。
 - 完整 Pages 日报链接。
 
-默认只消耗 1 次微信回复额度，完整 Markdown 仍在 `D:\知识库\knowledge1`。重复运行同一日期不会重复发送。
+默认只消耗 1 次微信回复额度，完整 Markdown 保存在 `D:\TuringEcho\drafts\horizon-daily`。重复运行同一日期不会重复发送。
 
 微信 iLink 实测每个会话上下文最多约 10 次回复。额度不足时，给机器人随便发送一条消息即可刷新上下文，然后重新运行：
 
@@ -173,6 +173,28 @@ Codex 定时自动化已配置为每天北京时间 08:00 执行，成功时静�
 
 ```powershell
 .\scripts\Send-Horizon-WeChat.ps1 -Mode full -Force
+```
+
+### 专用每日投递 Skill
+
+项目内已封装 `horizon-daily-delivery` Skill，源码位于：
+
+```text
+scripts\skills\horizon-daily-delivery
+```
+
+它只负责每日投递：检查状态、等待日报、写知识库、发送微信、验证投递记录。不会在每天重新审计信息源或修改筛选标准。
+
+双击 `scripts\Run-Horizon-Daily.cmd` 时，如果全局尚未安装该 Skill，会先自动安装到当前用户的 `.codex\skills`。也可以手动安装：
+
+```powershell
+.\scripts\Install-HorizonDailySkill.ps1 -Force
+```
+
+安装后可直接调用：
+
+```text
+$horizon-daily-delivery
 ```
 
 ## 如何按你的方向微调
