@@ -1,4 +1,4 @@
-<#
+﻿<#
 [INPUT]: 依赖 GitHub CLI 凭据、gh-pages 分支中的每日 Markdown
 [OUTPUT]: 将指定日期的中文日报原子写入目标知识库目录
 [POS]: scripts 模块的本机同步器，由 Windows 计划任务每日调用
@@ -6,7 +6,7 @@
 #>
 
 param(
-    [string]$Destination = "D:\知识库\knowledge1",
+    [string]$Destination = "D:\TuringEcho\drafts\horizon-daily",
     [string]$Date = (Get-Date -Format "yyyy-MM-dd"),
     [int]$WaitMinutes = 90,
     [switch]$Force,

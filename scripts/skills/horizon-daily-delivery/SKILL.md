@@ -8,9 +8,14 @@ description: Deliver or diagnose the daily Horizon Chinese briefing from GitHub 
 Run this skill for the recurring daily delivery of Horizon's `zh` briefing:
 
 - Source of truth: `C:\Users\16339\Documents\Codex\2026-10-20\ai-https-github-com-thysrael-horizon\outputs\horizon-student-radar`
-- Knowledge destination: `D:\知识库\knowledge1\00_资源库\03_新闻雷达`
+- Draft destination: `D:\TuringEcho\drafts\horizon-daily`
 - Date basis: `Asia/Shanghai`
 - Delivery: one compact WeChat message plus the full Markdown file
+
+The knowledge base is read-only for AI. Never write to
+`D:\知识库\knowledge1`. Deliver the generated draft path, a suggested ingest
+location, and a short pending checklist to the user; the user decides whether to
+ingest it.
 
 ## Do not repeat setup work
 
@@ -26,6 +31,7 @@ Run the deterministic helper:
 $projectRoot = "C:\Users\16339\Documents\Codex\2026-10-20\ai-https-github-com-thysrael-horizon"
 & "$projectRoot\work\Horizon-main\.venv\Scripts\python.exe" `
   "$projectRoot\outputs\horizon-student-radar\scripts\skills\horizon-daily-delivery\scripts\run_daily_delivery.py" `
+  --destination "D:\TuringEcho\drafts\horizon-daily" `
   --wait-minutes 90 `
   --mode compact
 ```
@@ -33,7 +39,8 @@ $projectRoot = "C:\Users\16339\Documents\Codex\2026-10-20\ai-https-github-com-th
 It performs all of the following:
 
 1. Computes today's date in `Asia/Shanghai`.
-2. Invokes `scripts/Sync-Horizon-Daily.ps1` with the canonical destination, compact WeChat delivery, and the configured wait window.
+2. Invokes `scripts/Sync-Horizon-Daily.ps1` with the workspace draft
+   destination, compact WeChat delivery, and the configured wait window.
 3. Verifies the Markdown file exists and is larger than 500 bytes.
 4. Verifies `work/state/wechat-delivered.json` records today's date with at least one delivered chunk.
 
@@ -69,7 +76,8 @@ If GitHub or WeChat sockets are denied, stop and report the exact blocked operat
 ## Safety invariants
 
 - Never print or commit `data/wechat_session.json`, bot tokens, user IDs, API keys, or QR contents.
-- Keep the full Markdown in the knowledge base; WeChat compact mode sends one overview message with the Pages link.
+- Keep the full Markdown in the workspace draft directory; WeChat compact mode sends one overview message with the Pages link.
+- Never write AI-generated material into `D:\知识库\knowledge1`.
 - Preserve idempotence by date and content hash.
 - Do not modify `data/radar-preferences.json` during a delivery task.
 

@@ -1,4 +1,4 @@
-<#
+﻿<#
 [INPUT]: 依赖 Sync-Horizon-Daily.ps1、Windows 计划任务与当前用户登录令牌
 [OUTPUT]: 注册或更新每日 08:00 运行的 Horizon 知识库同步任务
 [POS]: scripts 模块的安装器，将同步脚本接入 Windows 调度器
@@ -7,7 +7,7 @@
 
 param(
     [string]$TaskName = "Horizon Daily Knowledge Sync",
-    [string]$Destination = "D:\知识库\knowledge1",
+    [string]$Destination = "D:\TuringEcho\drafts\horizon-daily",
     [string]$DailyAt = "08:00"
 )
 

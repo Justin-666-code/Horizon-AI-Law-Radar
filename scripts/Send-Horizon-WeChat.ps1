@@ -24,7 +24,7 @@ $LogDir = Join-Path $WorkspaceRoot "work\logs"
 $LogPath = Join-Path $LogDir "horizon-wechat.log"
 
 if ([string]::IsNullOrWhiteSpace($SummaryPath)) {
-    $SummaryPath = Join-Path "D:\知识库\knowledge1" "horizon-$Date-zh.md"
+    $SummaryPath = Join-Path "D:\TuringEcho\drafts\horizon-daily" "horizon-$Date-zh.md"
 }
 
 function Write-WeChatLog {
